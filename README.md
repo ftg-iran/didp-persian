@@ -104,4 +104,4 @@
 
 ## ممنون از افرادی که در ترجمه این کتاب مشارکت داشتند :
 
-[![People](https://contrib.rocks/image?repo=ftg-iran/ddpabp-persian)](https://github.com/ftg-iran/didp-persian/graphs/contributors)
+[![People](https://contrib.rocks/image?repo=ftg-iran/didp-persian)](https://github.com/ftg-iran/didp-persian/graphs/contributors)
