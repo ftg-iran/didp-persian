@@ -484,7 +484,7 @@ In this example, the high-level budget reporting class uses a low-level database
 
 <div align="center">
 
-![](pic/Output.041.png)
+![](pic/Output.042.png)
 
 *BEFORE: a high-level class depends on a low-level class.*
 
