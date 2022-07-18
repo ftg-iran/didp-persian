@@ -116,7 +116,7 @@ For this pat­tern to work, the base dia­log class must work with abstract but�
 
 Of course, you can apply this approach to other UI ele­ments as well. How­ev­er, with each new fac­to­ry method you add to the dia­log, you get clos­er to the **Abstract Fac­to­ry** pat­tern. Fear not, we’ll talk about this pat­tern later.
 
-```c
+```c++
 // The creator class declares the factory method that must
 // return an object of a product class. The creator's subclasses
 // usually provide the implementation of this method.
@@ -291,3 +291,4 @@ For instance, imag­ine that you have the fol­low­ing hier­ar­chy of class­
 - **Fac­to­ry Method** is a spe­cial­iza­tion of **Tem­plate Method**. At the same time, a Fac­to­ry Method may serve as a step in a large Tem­plate Method.
 
 
+    
