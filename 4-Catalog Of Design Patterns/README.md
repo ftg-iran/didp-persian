@@ -15,7 +15,16 @@
     * [Flyweight](#Flyweight-1)
     * [Proxy](#Proxy-1)
 - [Behavioral Design Patterns](#Behavioral-Design-Patterns)
-
+    * [Chain of Responsibility](#chain-of-responsibility-1)
+    * [Command](#command-1)
+    * [Iterator](#iterator-1)
+    * [Mediator](#mediator-1)
+    * [Memento](#memento-1)
+    * [Observer](#observer-1)
+    * [State](#state-1)
+    * [Strategy](#strategy-1)
+    * [Template Method](#template-method-1)
+    * [Visitor](#visitor-1)
 
 ---
 
@@ -2761,6 +2770,58 @@ The proxy can also track whether the client had modified the service object. The
 - **Facade** is similar to **Proxy** in that both buffer a complex entity and initialize it on its own. Unlike Facade, Proxy has the same interface as its service object, which makes them interchangeable.
 
 - **Decorator** and **Proxy** have similar structures, but very different intents. Both patterns are built on the composition principle, where one object is supposed to delegate some of the work to another. The difference is that a Proxy usually manages the life cycle of its service object on its own, whereas the composition of Decorators is always controlled by the client.
+
+---
+
+## Behavioral Design Patterns
+
+Behavioral patterns are concerned with algorithms and the assignment of responsibilities between objects.
+
+> ### [Chain of Responsibility](#chain-of-responsibility-1)
+> [![chain-of-responsibility-mini](./images/cards/chain-of-responsibility-mini.png)](#chain-of-responsibility-1) </br>
+> [Lets you pass requests along a chain of handlers. Upon receiving a request, each handler decides either to process the request or to pass it to the next handler in the chain.](#chain-of-responsibility-1)
+
+> ### [Command](#command-1)
+> [![command-mini](./images/cards/command-mini.png)](#command-1) </br>
+> [Turns a request into a stand-alone object that contains all information about the request. This transformation lets you pass requests as a method arguments, delay or queue a request's execution, and support undoable operations.](#command-1)
+
+> ### [Iterator](#iterator-1)
+> [![iterator-mini](./images/cards/iterator-mini.png)](#iterator-1) </br>
+> [Lets you traverse elements of a collection without exposing its underlying representation (list, stack, tree, etc.).](#iterator-1)
+
+> ### [Mediator](#mediator-1)
+> [![mediator-mini](./images/cards/mediator-mini.png)](#mediator-1) </br>
+> [Lets you reduce chaotic dependencies between objects. The pattern restricts direct communications between the objects and forces them to collaborate only via a mediator object.](#mediator-1)
+
+> ### [Memento](#memento-1)
+> [![memento-mini](./images/cards/memento-mini.png)](#memento-1) </br>
+> [Lets you save and restore the previous state of an object without revealing the details of its implementation.](#memento-1)
+
+> ### [Observer](#observer-1)
+> [![observer-mini](./images/cards/observer-mini.png)](#observer-1) </br>
+> [Lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they're observing.](#observer-1)
+
+> ### [State](#state-1)
+> [![state-mini](./images/cards/state-mini.png)](#state-1) </br>
+> [Lets an object alter its behavior when its internal state changes. It appears as if the object changed its class.](#state-1)
+
+> ### [Strategy](#strategy-1)
+> [![strategy-mini](./images/cards/strategy-mini.png)](#strategy-1) </br>
+> [Lets you define a family of algorithms, put each of them into a separate class, and make their objects interchangeable.](#strategy-1)
+
+> ### [Template Method](#template-method-1)
+> [![template-method-mini](./images/cards/template-method-mini.png)](#template-method-1) </br>
+> [Defines the skeleton of an algorithm in the superclass but lets subclasses override specific steps of the algorithm without changing its structure.](#template-method-1)
+
+> ### [Visitor](#visitor-1)
+> [![visitor-mini](./images/cards/visitor-mini.png)](#visitor-1) </br>
+> [Lets you separate algorithms from the objects on which they operate.](#visitor-1)
+
+
+
+
+
+
 
 <!--
 ### :worried: Problem
