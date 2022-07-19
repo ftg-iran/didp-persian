@@ -7,30 +7,30 @@ Cre­ation­al pat­terns pro­vide var­i­ous object cre­ation mech­a­nisms
 
 
 > ### [Fac­to­ry Method](#Factory-Method)
-> [![factory method](./images/cards/factory-method-mini.png)](#Factory-Method)
+> [![factory method](./images/cards/factory-method-mini.png)](#Factory-Method)<br>
 >[Pro­vides an inter­face for cre­at­ing objects in a super­class, but allows sub­class­es to alter the type of objects that will be cre­at­ed.](#Factory-Method)
 
 > ### [Abstract Fac­to­ry](#Abstract-Fac­to­ry)
-> [![Abstract Fac­to­ry](./images/cards/abstract-factory-mini.png)](#Abstract-Fac­to­ry)
+> [![Abstract Fac­to­ry](./images/cards/abstract-factory-mini.png)](#Abstract-Fac­to­ry)<br>
 >[Lets you pro­duce fam­i­lies of relat­ed objects with­out spec­i­fy­ing their con­crete class­es.](#Abstract-Fac­to­ry)
 
 > ### Builder
-> ![builder](./images/cards/builder-mini.png)
+> ![builder](./images/cards/builder-mini.png)<br>
 >Lets you con­struct com­plex objects step by step. The pat­tern allows you to pro­duce dif­fer­ent types and rep­re­sen­ta­tions of an object using the same con­struc­tion code.
 
 > ### Pro­to­type
-> ![Pro­to­type](./images/cards/prototype-mini.png)
+> ![Pro­to­type](./images/cards/prototype-mini.png)<br>
 > Lets you copy exist­ing objects with­out mak­ing your code depen­dent on their class­es.
 
 > ### Sin­gle­ton
-> ![singleton](./images/cards/singleton-mini.png)
+> ![singleton](./images/cards/singleton-mini.png)<br>
 >Lets you ensure that a class has only one instance, while pro­vid­ing a glob­al access point to this instance.
 
 ---
 
 ![factory-method-en](./images/content/factory-method/factory-method-en.png)
 
-## Factory Method {#Factory-Method}
+## Factory Method { #Factory-Method }
 ###### Also known as: Virtual Constructor
 
 
@@ -293,7 +293,7 @@ For instance, imag­ine that you have the fol­low­ing hier­ar­chy of class­
 ---
 ![abstract-factory-en](./images/content/abstract-factory/abstract-factory-en.png)
 
-## Abstract Factory {#Abstract-Fac­to­ry}
+## Abstract Factory { #Abstract-Fac­to­ry }
 
 
 **Abstract Fac­to­ry** is a cre­ation­al design pat­tern that lets you pro­duce fam­i­lies of relat­ed objects with­out spec­i­fy­ing their con­crete classes.
