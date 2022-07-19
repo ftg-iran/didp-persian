@@ -1,5 +1,24 @@
 # CATALOG OF DESIGN PATTERNS
 
+- [Creational Design Patterns](#Creational-Design-Patterns-1)
+    * [Factory Method](#factory-method-1)
+    * [Abstract Factory](#abstract-factory-1)
+    * [Builder](#builder-1)
+    * [Prototype](#prototype-1)
+    * [Singleton](#singleton-1)
+- [Structural Design Patterns](#Structural-Design-Patterns-1)
+    * [Adapter](#Adapter-1)
+    * [Bridge](#Bridge-1)
+    * [Composite](#Composite-1)
+    * [Decorator](#Decorator-1)
+    * [Facade](#Facade-1)
+    * [Flyweight](#Flyweight-1)
+    * [Proxy](#Proxy-1)
+- [Behavioral Design Patterns](#Behavioral-Design-Patterns-1)
+
+
+---
+
 ## Creational Design Patterns
 
 
@@ -1202,9 +1221,44 @@ Note that you can always adjust this limitation and allow creating any number of
 
 - **Flyweight** would resemble **Singleton** if you somehow managed to reduce all shared states of the objects to just one flyweight object. But there are two fundamental differences between these patterns:
 
-1. There should be only one Singleton instance, whereas a Flyweight class can have multiple instances with different intrinsic states.
+    1. There should be only one Singleton instance, whereas a Flyweight class can have multiple instances with different intrinsic states.
 
-2. The Singleton object can be mutable. Flyweight objects are immutable.
+    2. The Singleton object can be mutable. Flyweight objects are immutable.
 
 - **Abstract Factories**, **Builders** and **Prototypes** can all be implemented as **Singletons**.
+
+---
+
+## Structural Design Patterns
+
+Structural patterns explain how to assemble objects and classes into larger structures, while keeping this structures flexible and efficient.
+
+> ### [Adapter](#Adapter-1)
+> [![adapter-mini](./images/cards/adapter-mini.png)](#Adapter-1) </br>
+>[Allows objects with incompatible interfaces to collaborate.](#Adapter-1)
+
+> ### [Bridge](#Bridge-1)
+> [![bridge-mini](./images/cards/bridge-mini.png)](#Bridge-1) </br>
+> [Lets you split a large class or a set of closely related classes into two separate hierarchies—abstraction and implementation—which can be developed independently of each other.](#Bridge-1)
+
+> ### [Composite](#Composite-1)
+> [![composite-mini](./images/cards/composite-mini.png)](#Composite-1) </br>
+> [Lets you compose objects into tree structures and then work with these structures as if they were individual objects.](#Composite-1)
+
+> ### [Decorator](#Decorator-1)
+> [![decorator-mini](./images/cards/decorator-mini.png)](#Decorator-1) </br>
+> [Lets you attach new behaviors to objects by placing these objects inside special wrapper objects that contain the behaviors.](#Decorator-1)
+
+> ### [Facade](#Facade-1)
+> [![facade-mini](./images/cards/facade-mini.png)](#Facade-1) </br>
+> [Provides a simplified interface to a library, a framework, or any other complex set of classes.](#Facade-1)
+
+> ### [Flyweight](#Flyweight-1)
+> [![flyweight-mini](./images/cards/flyweight-mini.png)](#Flyweight-1) </br>
+> [Lets you fit more objects into the available amount of RAM by sharing common parts of state between multiple objects instead of keeping all of the data in each object.](#Flyweight-1)
+
+> ### [Proxy](#Proxy-1)
+> [![alt](./images/cards/proxy-mini.png)](#Proxy-1) </br>
+> [Lets you provide a substitute or placeholder for another object. A proxy controls access to the original object, allowing you to perform something either before or after the request gets through to the original object.](#Proxy-1)
+
 
