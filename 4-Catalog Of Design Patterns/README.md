@@ -5,34 +5,33 @@
 
 Creational patterns provide various object creation mechanisms, which increase flexibility and reuse of existing code.
 
-
 > ### [Factory Method](#factory-method-1)
-> [![factory method](./images/cards/factory-method-mini.png)](#factory-method-1)<br>
+> [![factory method](./images/cards/factory-method-mini.png)](#factory-method-1) </br>
 > [Provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.](#factory-method-1)
 
 > ### [Abstract Factory](#abstract-factory-1)
-> [![Abstract Factory](./images/cards/abstract-factory-mini.png)](#abstract-factory-1)<br>
+> [![Abstract Factory](./images/cards/abstract-factory-mini.png)](#abstract-factory-1) </br>
 > [Lets you produce families of related objects without specifying their concrete classes.](#abstract-factory-1)
 
-> **[Builder](#builder-1)**
-> [![builder](./images/cards/builder-mini.png)](#builder)<br>
-> [Lets you construct complex objects step by step. The pattern allows you to produce different types and representations of an object using the same construction code.](#builder)
+> ### [Builder](#builder-1)
+> [![builder](./images/cards/builder-mini.png)](#builder-1) </br>
+> [Lets you construct complex objects step by step. The pattern allows you to produce different types and representations of an object using the same construction code.](#builder-1)
 
-> **[Prototype](#prototype)**
-> [![Prototype](./images/cards/prototype-mini.png)](#prototype)<br>
-> [Lets you copy existing objects without making your code dependent on their classes.](#prototype)
+> ### [Prototype](#prototype-1)
+> [![Prototype](./images/cards/prototype-mini.png)](#prototype-1) </br>
+> [Lets you copy existing objects without making your code dependent on their classes.](#prototype-1)
 
-> **[Singleton](#singleton)**
-> [![singleton](./images/cards/singleton-mini.png)](#singleton)<br>
-> [Lets you ensure that a class has only one instance, while providing a global access point to this instance.](#singleton)
+> ### [Singleton](#singleton-1)
+> [![singleton](./images/cards/singleton-mini.png)](#singleton-1) </br>
+> [Lets you ensure that a class has only one instance, while providing a global access point to this instance.](#singleton-1)
 
 ---
 
 ![factory-method-en](./images/content/factory-method/factory-method-en.png)
 
 ## Factory Method
-###### Also known as: Virtual Constructor
 
+###### Also known as: Virtual Constructor
 
 **Factory Method** is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
 
@@ -73,11 +72,9 @@ The code that uses the factory method (often called the client code) doesn’t s
 
 ![Truck](./images/diagrams/factory-method/solution3-en.png)
 
-
 As long as all product classes implement a common interface, you can pass their objects to the client code without breaking it.
 
 The client knows that all transport objects are supposed to have the `deliver` method, but exactly how it works isn’t important to the client.
-
 
 ### :construction: Structure
 
@@ -93,9 +90,7 @@ You can declare the factory method as abstract to force all subclasses to implem
 
 Note, despite its name, product creation is **not** the primary responsibility of the creator. Usually, the creator class already has some core business logic related to products. The factory method helps to decouple this logic from the concrete product classes. Here is an analogy: a large software development company can have a training department for programmers. However, the primary function of the company as a whole is still writing code, not producing programmers.
 
-
 4. **Concrete Creators** override the base factory method so it returns a different type of product.
-
 
 Note that the factory method doesn’t have to **create** new instances all the time. It can also return existing objects from a cache, an object pool, or another source.
 
@@ -202,17 +197,13 @@ method main() is
 
 ```
 
-
 ### :bulb: Applicability
 
-
 :beetle: **Use the Factory Method when you don’t know beforehand the exact types and dependencies of the objects your code should work with.**
-
 
 :sparkles: The Factory Method separates product construction code from the code that actually uses the product. Therefore it’s easier to extend the product construction code independently from the rest of the code.
 
 For example, to add a new product type to the app, you’ll only need to create a new creator subclass and override the factory method in it.
-
 
 **Use the Factory Method when you want to provide users of your library or framework with a way to extend its internal components.**
 
@@ -230,7 +221,6 @@ You often experience this need when dealing with large, resource-intensive objec
 
 Let’s think about what has to be done to reuse an existing object:
 
-
 1. First, you need to create some storage to keep track of all of the created objects.
 
 2. When someone requests an object, the program should look for a free object inside that pool.
@@ -246,7 +236,6 @@ Probably the most obvious and convenient place where this code could be placed i
 Therefore, you need to have a regular method capable of creating new objects as well as reusing existing ones. That sounds very much like a factory method.
 
 ### :clipboard: How to Implement
-
 
 1. Make all products follow the same interface. This interface should declare methods that make sense in every product.
 
@@ -297,3 +286,235 @@ For instance, imagine that you have the following hierarchy of classes: the base
 
 
 **Abstract Factory** is a creational design pattern that lets you produce families of related objects without specifying their concrete classes.
+
+### :worried: Problem
+
+Imagine that you’re creating a furniture shop simulator. Your code consists of classes that represent:
+
+1. A family of related products, say: `Chair` + `Sofa` + `CoffeeTable`.
+
+2. Several variants of this family. For example, products `Chair` + `Sofa` + `CoffeeTable` are available in these variants: `Modern`, `Victorian`, `ArtDeco`.
+
+![problem-en](./images/diagrams/abstract-factory/problem-en.png)
+
+Product families and their variants.
+
+You need a way to create individual furniture objects so that they match other objects of the same family. Customers get quite mad when they receive non-matching furniture.
+
+![abstract-factory-comic-1-en](./images/content/abstract-factory/abstract-factory-comic-1-en.png)
+
+A Modern-style sofa doesn’t match Victorian-style chairs.
+
+Also, you don’t want to change existing code when adding new products or families of products to the program. Furniture vendors update their catalogs very often, and you wouldn’t want to change the core code each time it happens.
+
+### :smiley: Solution
+
+The first thing the Abstract Factory pattern suggests is to explicitly declare interfaces for each distinct product of the product family (e.g., chair, sofa or coffee table). Then you can make all variants of products follow those interfaces. For example, all chair variants can implement the Chair interface; all coffee table variants can implement the CoffeeTable interface, and so on.
+
+![solution1](./images/diagrams/abstract-factory/solution1.png)
+
+
+All variants of the same object must be moved to a single class hierarchy.
+
+The next move is to declare the Abstract Factory—an interface with a list of creation methods for all products that are part of the product family (for example, `createChair`, `createSofa` and `createCoffeeTable`). These methods must return **abstract** product types represented by the interfaces we extracted previously: `Chair`, `Sofa`, `CoffeeTable` and so on.
+
+Now, how about the product variants? For each variant of a product family, we create a separate factory class based on the `AbstractFactory` interface. A factory is a class that returns products of a particular kind. For example, the `ModernFurnitureFactory` can only create `ModernChair`, `ModernSofa` and `ModernCoffeeTable` objects.
+
+![solution2](./images/diagrams/abstract-factory/solution2.png)
+
+Each concrete factory corresponds to a specific product variant.
+
+The client code has to work with both factories and products via their respective abstract interfaces. This lets you change the type of a factory that you pass to the client code, as well as the product variant that the client code receives, without breaking the actual client code.
+
+![abstract-factory-comic-2-en](./images/content/abstract-factory/abstract-factory-comic-2-en.png)
+
+The client shouldn’t care about the concrete class of the factory it works with.
+
+Say the client wants a factory to produce a chair. The client doesn’t have to be aware of the factory’s class, nor does it matter what kind of chair it gets. Whether it’s a Modern model or a Victorian-style chair, the client must treat all chairs in the same manner, using the abstract `Chair` interface. With this approach, the only thing that the client knows about the chair is that it implements the `sitOn` method in some way. Also, whichever variant of the chair is returned, it’ll always match the type of sofa or coffee table produced by the same factory object.
+
+There’s one more thing left to clarify: if the client is only exposed to the abstract interfaces, what creates the actual factory objects? Usually, the application creates a concrete factory object at the initialization stage. Just before that, the app must select the factory type depending on the configuration or the environment settings.
+
+### :construction: Structure
+
+![structure-indexed](./images/diagrams/abstract-factory/structure-indexed.png)
+
+1. **Abstract Products** declare interfaces for a set of distinct but related products which make up a product family.
+
+2. **Concrete Products** are various implementations of abstract products, grouped by variants. Each abstract product (chair/sofa) must be implemented in all given variants (Victorian/Modern).
+
+3. The **Abstract Factory** interface declares a set of methods for creating each of the abstract products.
+
+4. **Concrete Factories** implement creation methods of the abstract factory. Each concrete factory corresponds to a specific variant of products and creates only those product variants.
+
+5. Although concrete factories instantiate concrete products, signatures of their creation methods must return corresponding abstract products. This way the client code that uses a factory doesn’t get coupled to the specific variant of the product it gets from a factory. The Client can work with any concrete factory/product variant, as long as it communicates with their objects via abstract interfaces.
+
+
+### :hash: Pseudocode
+
+This example illustrates how the **Abstract Factory** pattern can be used for creating cross-platform UI elements without coupling the client code to concrete UI classes, while keeping all created elements consistent with a selected operating system.
+
+![example](./images/diagrams/abstract-factory/example.png)
+
+
+The cross-platform UI classes example.
+
+The same UI elements in a cross-platform application are expected to behave similarly, but look a little bit different under different operating systems. Moreover, it’s your job to make sure that the UI elements match the style of the current operating system. You wouldn’t want your program to render macOS controls when it’s executed in Windows.
+
+
+The Abstract Factory interface declares a set of creation methods that the client code can use to produce different types of UI elements. Concrete factories correspond to specific operating systems and create the UI elements that match that particular OS.
+
+It works like this: when an application launches, it checks the type of the current operating system. The app uses this information to create a factory object from a class that matches the operating system. The rest of the code uses this factory to create UI elements. This prevents the wrong elements from being created.
+
+With this approach, the client code doesn’t depend on concrete classes of factories and UI elements as long as it works with these objects via their abstract interfaces. This also lets the client code support other factories or UI elements that you might add in the future.
+
+As a result, you don’t need to modify the client code each time you add a new variation of UI elements to your app. You just have to create a new factory class that produces these elements and slightly modify the app’s initialization code so it selects that class when appropriate.
+
+```c++
+
+// The abstract factory interface declares a set of methods that
+// return different abstract products. These products are called
+// a family and are related by a high-level theme or concept.
+// Products of one family are usually able to collaborate among
+// themselves. A family of products may have several variants,
+// but the products of one variant are incompatible with the
+// products of another variant.
+interface GUIFactory is
+    method createButton():Button
+    method createCheckbox():Checkbox
+
+
+// Concrete factories produce a family of products that belong
+// to a single variant. The factory guarantees that the
+// resulting products are compatible. Signatures of the concrete
+// factory's methods return an abstract product, while inside
+// the method a concrete product is instantiated.
+class WinFactory implements GUIFactory is
+    method createButton():Button is
+        return new WinButton()
+    method createCheckbox():Checkbox is
+        return new WinCheckbox()
+
+
+// Each concrete factory has a corresponding product variant.
+class MacFactory implements GUIFactory is
+    method createButton():Button is
+        return new MacButton()
+    method createCheckbox():Checkbox is
+        return new MacCheckbox()
+
+
+// Each distinct product of a product family should have a base
+// interface. All variants of the product must implement this
+// interface.
+
+interface Button is
+    method paint()
+
+
+// Concrete products are created by corresponding concrete
+// factories.
+class WinButton implements Button is
+    method paint() is
+        // Render a button in Windows style.
+class MacButton implements Button is
+    method paint() is
+        // Render a button in macOS style.
+
+
+// Here's the base interface of another product. All products
+// can interact with each other, but proper interaction is
+// possible only between products of the same concrete variant.
+interface Checkbox is
+    method paint()
+
+
+class WinCheckbox implements Checkbox is
+    method paint() is
+        // Render a checkbox in Windows style.
+
+class MacCheckbox implements Checkbox is
+    method paint() is
+        // Render a checkbox in macOS style.
+
+
+// The client code works with factories and products only
+// through abstract types: GUIFactory, Button and Checkbox. This
+// lets you pass any factory or product subclass to the client
+// code without breaking it.
+class Application is
+    private field factory: GUIFactory
+    private field button: Button
+    constructor Application(factory: GUIFactory) is
+        this.factory = factory
+    method createUI() is
+        this.button = factory.createButton()
+    method paint() is
+        button.paint()
+
+// The application picks the factory type depending on the
+// current configuration or environment settings and creates it
+// at runtime (usually at the initialization stage).
+class ApplicationConfigurator is
+    method main() is
+        config = readApplicationConfigFile()
+
+    if (config.OS == "Windows") then
+        factory = new WinFactory()
+    else if (config.OS == "Mac") then
+        factory = new MacFactory()
+    else
+        throw new Exception("Error! Unknown operating system.")
+
+    Application app = new Application(factory)
+
+```
+
+### :bulb: Applicability
+
+:beetle: **Use the Abstract Factory when your code needs to work with various families of related products, but you don’t want it to depend on the concrete classes of those products—they might be unknown beforehand or you simply want to allow for future extensibility.**
+
+:sparkles: The Abstract Factory provides you with an interface for creating objects from each class of the product family. As long as your code creates objects via this interface, you don’t have to worry about creating the wrong variant of a product which doesn’t match the products already created by your app.
+
+- Consider implementing the Abstract Factory when you have a class with a set of Factory Methods that blur its primary responsibility.
+
+- In a well-designed program each class is responsible only for one thing. When a class deals with multiple product types, it may be worth extracting its factory methods into a stand-alone factory class or a full-blown Abstract Factory implementation.
+
+### :clipboard: How to Implement
+
+1. Map out a matrix of distinct product types versus variants of these products.
+
+2. Declare abstract product interfaces for all product types. Then make all concrete product classes implement these interfaces.
+
+3. Declare the abstract factory interface with a set of creation methods for all abstract products.
+
+4. Implement a set of concrete factory classes, one for each product variant.
+
+5. Create factory initialization code somewhere in the app. It should instantiate one of the concrete factory classes, depending on the application configuration or the current environment. Pass this factory object to all classes that construct products.
+
+6. Scan through the code and find all direct calls to product constructors. Replace them with calls to the appropriate creation method on the factory object.
+
+### ⚖️ Pros and Cons
+
+:heavy_check_mark: You can be sure that the products you’re getting from a factory are compatible with each other.
+
+:heavy_check_mark: You avoid tight coupling between concrete products and client code.
+
+:heavy_check_mark: Single Responsibility Principle. You can extract the product creation code into one place, making the code easier to support.
+
+:heavy_check_mark: Open/Closed Principle. You can introduce new variants of products without breaking existing client code.
+
+:heavy_multiplication_x: The code may become more complicated than it should be, since a lot of new interfaces and classes are introduced along with the pattern.
+
+### :arrows_counterclockwise: Relations with Other Patterns
+
+- Many designs start by using **Factory Method** (less complicated and more customizable via subclasses) and evolve toward **Abstract Factory**, **Prototype**, or **Builder** (more flexible, but more complicated).
+
+- **Builder** focuses on constructing complex objects step by step. **Abstract** Factory specializes in creating families of related objects. Abstract Factory returns the product immediately, whereas Builder lets you run some additional construction steps before fetching the product.
+
+- **Abstract Factory** classes are often based on a set of **Factory Methods**, but you can also use **Prototype** to compose the methods on these classes.
+
+- **Abstract Factory** can serve as an alternative to **Facade** when you only want to hide the way the subsystem objects are created from the client code.
+
+- You can use **Abstract Factory** along with **Bridge**. This pairing is useful when some abstractions defined by Bridge can only work with specific implementations. In this case, Abstract Factory can encapsulate these relations and hide the complexity from the client code.
+
+- **Abstract Factories**, **Builders** and **Prototypes** can all be implemented as **Singletons**.
