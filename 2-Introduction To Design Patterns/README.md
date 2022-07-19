@@ -62,6 +62,5 @@ The truth is that you might manage to work as a programmer for many years withou
 
 - Design patterns define a common language that you and your teammates can use to communicate more efficiently. You can say, “Oh, just use a Singleton for that,” and everyone will understand the idea behind your suggestion. No need to explain what a singleton is if you know the pattern and its name.
 
-
 [^1]: A Pattern Language: Towns, Buildings, Construction: https://refactoring.guru/pattern-language-book
 [^2]: Design Patterns: Elements of Reusable Object-Oriented Software: https://refactoring.guru/gof-book
