@@ -3,28 +3,28 @@
 ## Creational Design Patterns
 
 
-Cre­ation­al pat­terns pro­vide var­i­ous object cre­ation mech­a­nisms, which increase flex­i­bil­i­ty and reuse of exist­ing code.
+Creational patterns provide various object creation mechanisms, which increase flexibility and reuse of existing code.
 
 
-> ### [Fac­to­ry Method](#factory-method-1)
+> ### [Factory Method](#factory-method-1)
 > [![factory method](./images/cards/factory-method-mini.png)](#factory-method-1)<br>
-> [Pro­vides an inter­face for cre­at­ing objects in a super­class, but allows sub­class­es to alter the type of objects that will be cre­at­ed.](#factory-method-1)
+> [Provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.](#factory-method-1)
 
-> ### [Abstract Fac­to­ry](#abstract-fac­to­ry-1)
-> [![Abstract Fac­to­ry](./images/cards/abstract-factory-mini.png)](#abstract-fac­to­ry-1)<br>
-> [Lets you pro­duce fam­i­lies of relat­ed objects with­out spec­i­fy­ing their con­crete class­es.](#abstract-fac­to­ry-1)
+> ### [Abstract Factory](#abstract-factory-1)
+> [![Abstract Factory](./images/cards/abstract-factory-mini.png)](#abstract-factory-1)<br>
+> [Lets you produce families of related objects without specifying their concrete classes.](#abstract-factory-1)
 
 > **[Builder](#builder-1)**
 > [![builder](./images/cards/builder-mini.png)](#builder)<br>
-> [Lets you con­struct com­plex objects step by step. The pat­tern allows you to pro­duce dif­fer­ent types and rep­re­sen­ta­tions of an object using the same con­struc­tion code.](#builder)
+> [Lets you construct complex objects step by step. The pattern allows you to produce different types and representations of an object using the same construction code.](#builder)
 
-> **[Pro­to­type](#pro­to­type)**
-> [![Pro­to­type](./images/cards/prototype-mini.png)](#pro­to­type)<br>
-> [Lets you copy exist­ing objects with­out mak­ing your code depen­dent on their class­es.](#pro­to­type)
+> **[Prototype](#prototype)**
+> [![Prototype](./images/cards/prototype-mini.png)](#prototype)<br>
+> [Lets you copy existing objects without making your code dependent on their classes.](#prototype)
 
-> **[Sin­gle­ton](#sin­gle­ton)**
-> [![singleton](./images/cards/singleton-mini.png)](#sin­gle­ton)<br>
-> [Lets you ensure that a class has only one instance, while pro­vid­ing a glob­al access point to this instance.](#sin­gle­ton)
+> **[Singleton](#singleton)**
+> [![singleton](./images/cards/singleton-mini.png)](#singleton)<br>
+> [Lets you ensure that a class has only one instance, while providing a global access point to this instance.](#singleton)
 
 ---
 
@@ -34,87 +34,87 @@ Cre­ation­al pat­terns pro­vide var­i­ous object cre­ation mech­a­nisms
 ###### Also known as: Virtual Constructor
 
 
-**Fac­to­ry Method** is a cre­ation­al design pat­tern that pro­vides an inter­face for cre­at­ing objects in a super­class, but allows sub­class­es to alter the type of objects that will be created.
+**Factory Method** is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
 
-### :worried: Prob­lem
+### :worried: Problem
 
-Imag­ine that you’re cre­at­ing a logis­tics man­age­ment appli­ca­tion. The first ver­sion of your app can only han­dle trans­porta­tion by trucks, so the bulk of your code lives inside the Truck class.
+Imagine that you’re creating a logistics management application. The first version of your app can only handle transportation by trucks, so the bulk of your code lives inside the Truck class.
 
-After a while, your app becomes pret­ty pop­u­lar. Each day you receive dozens of requests from sea trans­porta­tion com­pa­nies to incor­po­rate sea logis­tics into the app.
+After a while, your app becomes pretty popular. Each day you receive dozens of requests from sea transportation companies to incorporate sea logistics into the app.
 
 ![problem1-en](./images/diagrams/factory-method/problem1-en.png)
 
-Adding a new class to the pro­gram isn’t that sim­ple if the rest of the code is already cou­pled to exist­ing classes.
+Adding a new class to the program isn’t that simple if the rest of the code is already coupled to existing classes.
 
-Great news, right? But how about the code? At present, most of your code is cou­pled to the `Truck` class. Adding `Ships` into the app would require mak­ing changes to the entire code­base. More­over, if later you decide to add anoth­er type of trans­porta­tion to the app, you will prob­a­bly need to make all of these changes again.
+Great news, right? But how about the code? At present, most of your code is coupled to the `Truck` class. Adding `Ships` into the app would require making changes to the entire codebase. Moreover, if later you decide to add another type of transportation to the app, you will probably need to make all of these changes again.
 
-As a result, you will end up with pret­ty nasty code, rid­dled with con­di­tion­als that switch the app’s behav­ior depend­ing on the class of trans­porta­tion objects.
+As a result, you will end up with pretty nasty code, riddled with conditionals that switch the app’s behavior depending on the class of transportation objects.
 
-### :smiley: Solu­tion
+### :smiley: Solution
 
-The Fac­to­ry Method pat­tern sug­gests that you replace direct object con­struc­tion calls (using the new oper­a­tor) with calls to a spe­cial fac­to­ry method. Don’t worry: the objects are still cre­at­ed via the new oper­a­tor, but it’s being called from with­in the fac­to­ry method. Objects returned by a fac­to­ry method are often referred to as prod­ucts.
+The Factory Method pattern suggests that you replace direct object construction calls (using the new operator) with calls to a special factory method. Don’t worry: the objects are still created via the new operator, but it’s being called from within the factory method. Objects returned by a factory method are often referred to as products.
 
 ![solution1](./images/diagrams/factory-method/solution1.png)
 
 
-Sub­class­es can alter the class of objects being returned by the fac­to­ry method.
+Subclasses can alter the class of objects being returned by the factory method.
 
-At first glance, this change may look point­less: we just moved the con­struc­tor call from one part of the pro­gram to anoth­er. How­ev­er, con­sid­er this: now you can over­ride the fac­to­ry method in a sub­class and change the class of prod­ucts being cre­at­ed by the method.
+At first glance, this change may look pointless: we just moved the constructor call from one part of the program to another. However, consider this: now you can override the factory method in a subclass and change the class of products being created by the method.
 
-There’s a slight lim­i­ta­tion though: sub­class­es may return dif­fer­ent types of prod­ucts only if these prod­ucts have a com­mon base class or inter­face. Also, the fac­to­ry method in the base class should have its return type declared as this interface.
+There’s a slight limitation though: subclasses may return different types of products only if these products have a common base class or interface. Also, the factory method in the base class should have its return type declared as this interface.
 
 ![solution2-en](./images/diagrams/factory-method/solution2-en.png)
 
-All prod­ucts must fol­low the same interface.
+All products must follow the same interface.
 
-For exam­ple, both `Truck` and `Ship` class­es should imple­ment the `Transport` inter­face, which declares a method called `deliver`. Each class imple­ments this method dif­fer­ent­ly: trucks deliv­er cargo by land, ships deliv­er cargo by sea. The fac­to­ry method in the `RoadLogistics` class returns truck objects, where­as the fac­to­ry method in the `SeaLogistics` class returns ships.
+For example, both `Truck` and `Ship` classes should implement the `Transport` interface, which declares a method called `deliver`. Each class implements this method differently: trucks deliver cargo by land, ships deliver cargo by sea. The factory method in the `RoadLogistics` class returns truck objects, whereas the factory method in the `SeaLogistics` class returns ships.
 
-The code that uses the fac­to­ry method (often called the client code) doesn’t see a dif­fer­ence between the actu­al prod­ucts returned by var­i­ous sub­class­es. The client treats all the prod­ucts as abstract `Transport`.
+The code that uses the factory method (often called the client code) doesn’t see a difference between the actual products returned by various subclasses. The client treats all the products as abstract `Transport`.
 
 ![Truck](./images/diagrams/factory-method/solution3-en.png)
 
 
-As long as all prod­uct class­es imple­ment a com­mon inter­face, you can pass their objects to the client code with­out break­ing it.
+As long as all product classes implement a common interface, you can pass their objects to the client code without breaking it.
 
-The client knows that all trans­port objects are sup­posed to have the `deliver` method, but exact­ly how it works isn’t impor­tant to the client.
+The client knows that all transport objects are supposed to have the `deliver` method, but exactly how it works isn’t important to the client.
 
 
-### :construction: Struc­ture
+### :construction: Structure
 
 ![structure-indexed](./images/diagrams/factory-method/structure-indexed.png)
 
-1. The **Prod­uct** declares the inter­face, which is com­mon to all objects that can be pro­duced by the cre­ator and its subclasses
+1. The **Product** declares the interface, which is common to all objects that can be produced by the creator and its subclasses
 
-2. **Con­crete Prod­ucts** are dif­fer­ent imple­men­ta­tions of the prod­uct interface.
+2. **Concrete Products** are different implementations of the product interface.
 
-3. The **Cre­ator** class declares the fac­to­ry method that returns new prod­uct objects. It’s impor­tant that the return type of this method match­es the prod­uct interface.
+3. The **Creator** class declares the factory method that returns new product objects. It’s important that the return type of this method matches the product interface.
 
-You can declare the fac­to­ry method as abstract to force all sub­class­es to imple­ment their own ver­sions of the method. As an alter­na­tive, the base fac­to­ry method can return some default prod­uct type.
+You can declare the factory method as abstract to force all subclasses to implement their own versions of the method. As an alternative, the base factory method can return some default product type.
 
-Note, despite its name, prod­uct cre­ation is **not** the pri­ma­ry respon­si­bil­i­ty of the cre­ator. Usu­al­ly, the cre­ator class already has some core busi­ness logic relat­ed to prod­ucts. The fac­to­ry method helps to decou­ple this logic from the con­crete prod­uct class­es. Here is an anal­o­gy: a large soft­ware devel­op­ment com­pa­ny can have a train­ing depart­ment for pro­gram­mers. How­ev­er, the pri­ma­ry func­tion of the com­pa­ny as a whole is still writ­ing code, not pro­duc­ing programmers.
-
-
-4. **Con­crete Cre­ators** over­ride the base fac­to­ry method so it returns a dif­fer­ent type of product.
+Note, despite its name, product creation is **not** the primary responsibility of the creator. Usually, the creator class already has some core business logic related to products. The factory method helps to decouple this logic from the concrete product classes. Here is an analogy: a large software development company can have a training department for programmers. However, the primary function of the company as a whole is still writing code, not producing programmers.
 
 
-Note that the fac­to­ry method doesn’t have to **cre­ate** new instances all the time. It can also return exist­ing objects from a cache, an object pool, or anoth­er source.
+4. **Concrete Creators** override the base factory method so it returns a different type of product.
+
+
+Note that the factory method doesn’t have to **create** new instances all the time. It can also return existing objects from a cache, an object pool, or another source.
 
 ### :hash: Pseudocode
 
-This exam­ple illus­trates how the **Fac­to­ry Method** can be used for cre­at­ing cross-plat­form UI ele­ments with­out cou­pling the client code to con­crete UI classes.
+This example illustrates how the **Factory Method** can be used for creating cross-platform UI elements without coupling the client code to concrete UI classes.
 
-The base dia­log class uses dif­fer­ent UI ele­ments to ren­der its win­dow. Under var­i­ous oper­at­ing sys­tems, these ele­ments may look a lit­tle bit dif­fer­ent, but they should still behave con­sis­tent­ly. A but­ton in Win­dows is still a but­ton in Linux.
+The base dialog class uses different UI elements to render its window. Under various operating systems, these elements may look a little bit different, but they should still behave consistently. A button in Windows is still a button in Linux.
 
 ![example](./images/diagrams/factory-method/example.png)
 
-The cross-plat­form dia­log example.
+The cross-platform dialog example.
 
 
-When the fac­to­ry method comes into play, you don’t need to rewrite the logic of the dia­log for each oper­at­ing sys­tem. If we declare a fac­to­ry method that pro­duces but­tons inside the base dia­log class, we can later cre­ate a dia­log sub­class that returns Win­dows-styled but­tons from the fac­to­ry method. The sub­class then inher­its most of the dia­log’s code from the base class, but, thanks to the fac­to­ry method, can ren­der Win­dows-look­ing but­tons on the screen.
+When the factory method comes into play, you don’t need to rewrite the logic of the dialog for each operating system. If we declare a factory method that produces buttons inside the base dialog class, we can later create a dialog subclass that returns Windows-styled buttons from the factory method. The subclass then inherits most of the dialog’s code from the base class, but, thanks to the factory method, can render Windows-looking buttons on the screen.
 
-For this pat­tern to work, the base dia­log class must work with abstract but­tons: a base class or an inter­face that all con­crete but­tons fol­low. This way the dia­log’s code remains func­tion­al, whichev­er type of but­tons it works with.
+For this pattern to work, the base dialog class must work with abstract buttons: a base class or an interface that all concrete buttons follow. This way the dialog’s code remains functional, whichever type of buttons it works with.
 
-Of course, you can apply this approach to other UI ele­ments as well. How­ev­er, with each new fac­to­ry method you add to the dia­log, you get clos­er to the **Abstract Fac­to­ry** pat­tern. Fear not, we’ll talk about this pat­tern later.
+Of course, you can apply this approach to other UI elements as well. However, with each new factory method you add to the dialog, you get closer to the **Abstract Factory** pattern. Fear not, we’ll talk about this pattern later.
 
 ```c++
 // The creator class declares the factory method that must
@@ -203,92 +203,92 @@ method main() is
 ```
 
 
-### :bulb: Applic­a­bil­i­ty
+### :bulb: Applicability
 
 
-:beetle: **Use the Fac­to­ry Method when you don’t know before­hand the exact types and depen­den­cies of the objects your code should work with.**
+:beetle: **Use the Factory Method when you don’t know beforehand the exact types and dependencies of the objects your code should work with.**
 
 
-:sparkles: The Fac­to­ry Method sep­a­rates prod­uct con­struc­tion code from the code that actu­al­ly uses the prod­uct. There­fore it’s eas­i­er to extend the prod­uct con­struc­tion code inde­pen­dent­ly from the rest of the code.
+:sparkles: The Factory Method separates product construction code from the code that actually uses the product. Therefore it’s easier to extend the product construction code independently from the rest of the code.
 
-For exam­ple, to add a new prod­uct type to the app, you’ll only need to cre­ate a new cre­ator sub­class and over­ride the fac­to­ry method in it.
-
-
-**Use the Fac­to­ry Method when you want to pro­vide users of your library or frame­work with a way to extend its inter­nal components.**
-
-Inher­i­tance is prob­a­bly the eas­i­est way to extend the default behav­ior of a library or frame­work. But how would the frame­work rec­og­nize that your sub­class should be used instead of a stan­dard com­po­nent?
-
-The solu­tion is to reduce the code that con­structs com­po­nents across the frame­work into a sin­gle fac­to­ry method and let any­one over­ride this method in addi­tion to extend­ing the com­po­nent itself.
-
-Let’s see how that would work. Imag­ine that you write an app using an open source UI frame­work. Your app should have round `but­tons`, but the frame­work only pro­vides square ones. You extend the stan­dard Button class with a glo­ri­ous `RoundButton` sub­class. But now you need to tell the main `UIFramework` class to use the new but­ton sub­class instead of a default one.
-
-To achieve this, you cre­ate a sub­class `UIWithRoundButtons` from a base frame­work class and over­ride its `createButton` method. While this method returns `Button` objects in the base class, you make your sub­class return `RoundButton` objects. Now use the `UIWithRoundButtons` class instead of `UIFramework`. And that’s about it!
-
-**Use the Fac­to­ry Method when you want to save sys­tem resources by reusing exist­ing objects instead of rebuild­ing them each time.**
-
-You often expe­ri­ence this need when deal­ing with large, resource-inten­sive objects such as data­base con­nec­tions, file sys­tems, and net­work resources.
-
-Let’s think about what has to be done to reuse an exist­ing object:
+For example, to add a new product type to the app, you’ll only need to create a new creator subclass and override the factory method in it.
 
 
-1. First, you need to cre­ate some stor­age to keep track of all of the cre­at­ed objects.
+**Use the Factory Method when you want to provide users of your library or framework with a way to extend its internal components.**
 
-2. When some­one requests an object, the pro­gram should look for a free object inside that pool.
+Inheritance is probably the easiest way to extend the default behavior of a library or framework. But how would the framework recognize that your subclass should be used instead of a standard component?
+
+The solution is to reduce the code that constructs components across the framework into a single factory method and let anyone override this method in addition to extending the component itself.
+
+Let’s see how that would work. Imagine that you write an app using an open source UI framework. Your app should have round `buttons`, but the framework only provides square ones. You extend the standard Button class with a glorious `RoundButton` subclass. But now you need to tell the main `UIFramework` class to use the new button subclass instead of a default one.
+
+To achieve this, you create a subclass `UIWithRoundButtons` from a base framework class and override its `createButton` method. While this method returns `Button` objects in the base class, you make your subclass return `RoundButton` objects. Now use the `UIWithRoundButtons` class instead of `UIFramework`. And that’s about it!
+
+**Use the Factory Method when you want to save system resources by reusing existing objects instead of rebuilding them each time.**
+
+You often experience this need when dealing with large, resource-intensive objects such as database connections, file systems, and network resources.
+
+Let’s think about what has to be done to reuse an existing object:
+
+
+1. First, you need to create some storage to keep track of all of the created objects.
+
+2. When someone requests an object, the program should look for a free object inside that pool.
 
 3. … and then return it to the client code.
 
-4. If there are no free objects, the pro­gram should cre­ate a new one (and add it to the pool).
+4. If there are no free objects, the program should create a new one (and add it to the pool).
 
-That’s a lot of code! And it must all be put into a sin­gle place so that you don’t pol­lute the pro­gram with dupli­cate code.
+That’s a lot of code! And it must all be put into a single place so that you don’t pollute the program with duplicate code.
 
-Prob­a­bly the most obvi­ous and con­ve­nient place where this code could be placed is the con­struc­tor of the class whose objects we’re try­ing to reuse. How­ev­er, a con­struc­tor must always return **new objects** by def­i­n­i­tion. It can’t return exist­ing instances.
+Probably the most obvious and convenient place where this code could be placed is the constructor of the class whose objects we’re trying to reuse. However, a constructor must always return **new objects** by definition. It can’t return existing instances.
 
-There­fore, you need to have a reg­u­lar method capa­ble of cre­at­ing new objects as well as reusing exist­ing ones. That sounds very much like a fac­to­ry method.
+Therefore, you need to have a regular method capable of creating new objects as well as reusing existing ones. That sounds very much like a factory method.
 
-### :clipboard: How to Imple­ment
+### :clipboard: How to Implement
 
 
-1. Make all prod­ucts fol­low the same inter­face. This inter­face should declare meth­ods that make sense in every product.
+1. Make all products follow the same interface. This interface should declare methods that make sense in every product.
 
-2. Add an empty fac­to­ry method inside the cre­ator class. The return type of the method should match the com­mon prod­uct interface.
+2. Add an empty factory method inside the creator class. The return type of the method should match the common product interface.
 
-3. In the cre­ator’s code find all ref­er­ences to prod­uct con­struc­tors. One by one, replace them with calls to the fac­to­ry method, while extract­ing the prod­uct cre­ation code into the fac­to­ry method.
+3. In the creator’s code find all references to product constructors. One by one, replace them with calls to the factory method, while extracting the product creation code into the factory method.
 
-You might need to add a tem­po­rary para­me­ter to the fac­to­ry method to con­trol the type of returned product.
+You might need to add a temporary parameter to the factory method to control the type of returned product.
 
-At this point, the code of the fac­to­ry method may look pret­ty ugly. It may have a large `switch` oper­a­tor that picks which prod­uct class to instan­ti­ate. But don’t worry, we’ll fix it soon enough.
+At this point, the code of the factory method may look pretty ugly. It may have a large `switch` operator that picks which product class to instantiate. But don’t worry, we’ll fix it soon enough.
 
-4. Now, cre­ate a set of cre­ator sub­class­es for each type of prod­uct list­ed in the fac­to­ry method. Over­ride the fac­to­ry method in the sub­class­es and extract the appro­pri­ate bits of con­struc­tion code from the base method.
+4. Now, create a set of creator subclasses for each type of product listed in the factory method. Override the factory method in the subclasses and extract the appropriate bits of construction code from the base method.
 
-5. If there are too many prod­uct types and it doesn’t make sense to cre­ate sub­class­es for all of them, you can reuse the con­trol para­me­ter from the base class in subclasses.
+5. If there are too many product types and it doesn’t make sense to create subclasses for all of them, you can reuse the control parameter from the base class in subclasses.
 
-For instance, imag­ine that you have the fol­low­ing hier­ar­chy of class­es: the base `Mail` class with a cou­ple of sub­class­es: `AirMail` and `GroundMail`; the `Transport` class­es are `Plane`, `Truck` and `Train`. While the `AirMail` class only uses Plane objects, `GroundMail` may work with both `Truck` and `Train` objects. You can cre­ate a new sub­class (say `TrainMail`) to han­dle both cases, but there’s anoth­er option. The client code can pass an argu­ment to the fac­to­ry method of the `GroundMail` class to con­trol which prod­uct it wants to receive.
+For instance, imagine that you have the following hierarchy of classes: the base `Mail` class with a couple of subclasses: `AirMail` and `GroundMail`; the `Transport` classes are `Plane`, `Truck` and `Train`. While the `AirMail` class only uses Plane objects, `GroundMail` may work with both `Truck` and `Train` objects. You can create a new subclass (say `TrainMail`) to handle both cases, but there’s another option. The client code can pass an argument to the factory method of the `GroundMail` class to control which product it wants to receive.
 
-6. If, after all of the extrac­tions, the base fac­to­ry method has become empty, you can make it abstract. If there’s some­thing left, you can make it a default behav­ior of the method.
+6. If, after all of the extractions, the base factory method has become empty, you can make it abstract. If there’s something left, you can make it a default behavior of the method.
 
 
 ### ⚖️ Pros and Cons
 
-:heavy_check_mark: You avoid tight cou­pling between the cre­ator and the con­crete products.
+:heavy_check_mark: You avoid tight coupling between the creator and the concrete products.
 
-:heavy_check_mark: Sin­gle Respon­si­bil­i­ty Prin­ci­ple. You can move the prod­uct cre­ation code into one place in the pro­gram, mak­ing the code eas­i­er to support.
+:heavy_check_mark: Single Responsibility Principle. You can move the product creation code into one place in the program, making the code easier to support.
 
-:heavy_check_mark: Open/Closed Prin­ci­ple. You can intro­duce new types of prod­ucts into the pro­gram with­out break­ing exist­ing client code.
+:heavy_check_mark: Open/Closed Principle. You can introduce new types of products into the program without breaking existing client code.
 
-:heavy_multiplication_x: The code may become more com­pli­cat­ed since you need to intro­duce a lot of new sub­class­es to imple­ment the pat­tern. The best case sce­nario is when you’re intro­duc­ing the pat­tern into an exist­ing hier­ar­chy of cre­ator classes.
+:heavy_multiplication_x: The code may become more complicated since you need to introduce a lot of new subclasses to implement the pattern. The best case scenario is when you’re introducing the pattern into an existing hierarchy of creator classes.
 
-### :arrows_counterclockwise: Rela­tions with Other Pat­terns
+### :arrows_counterclockwise: Relations with Other Patterns
 
 
-- Many designs start by using **Fac­to­ry Method** (less com­pli­cat­ed and more cus­tomiz­able via sub­class­es) and evolve toward **Abstract Fac­to­ry**, **Pro­to­type**, or **Builder** (more flex­i­ble, but more complicated).
+- Many designs start by using **Factory Method** (less complicated and more customizable via subclasses) and evolve toward **Abstract Factory**, **Prototype**, or **Builder** (more flexible, but more complicated).
 
-- **Abstract Fac­to­ry** class­es are often based on a set of **Fac­to­ry Meth­ods**, but you can also use **Pro­to­type** to com­pose the meth­ods on these classes.
+- **Abstract Factory** classes are often based on a set of **Factory Methods**, but you can also use **Prototype** to compose the methods on these classes.
 
-- You can use **Fac­to­ry Method** along with **Iter­a­tor** to let col­lec­tion sub­class­es return dif­fer­ent types of iter­a­tors that are com­pat­i­ble with the collections.
+- You can use **Factory Method** along with **Iterator** to let collection subclasses return different types of iterators that are compatible with the collections.
 
-- **Pro­to­type** isn’t based on inher­i­tance, so it doesn’t have its draw­backs. On the other hand, Pro­to­type requires a com­pli­cat­ed ini­tial­iza­tion of the cloned object. **Fac­to­ry Method** is based on inher­i­tance but doesn’t require an ini­tial­iza­tion step.
+- **Prototype** isn’t based on inheritance, so it doesn’t have its drawbacks. On the other hand, Prototype requires a complicated initialization of the cloned object. **Factory Method** is based on inheritance but doesn’t require an initialization step.
 
-- **Fac­to­ry Method** is a spe­cial­iza­tion of **Tem­plate Method**. At the same time, a Fac­to­ry Method may serve as a step in a large Tem­plate Method.
+- **Factory Method** is a specialization of **Template Method**. At the same time, a Factory Method may serve as a step in a large Template Method.
 
 ---
 ![abstract-factory-en](./images/content/abstract-factory/abstract-factory-en.png)
@@ -296,4 +296,4 @@ For instance, imag­ine that you have the fol­low­ing hier­ar­chy of class­
 ## Abstract Factory
 
 
-**Abstract Fac­to­ry** is a cre­ation­al design pat­tern that lets you pro­duce fam­i­lies of relat­ed objects with­out spec­i­fy­ing their con­crete classes.
+**Abstract Factory** is a creational design pattern that lets you produce families of related objects without specifying their concrete classes.
