@@ -6,25 +6,25 @@
 Cre­ation­al pat­terns pro­vide var­i­ous object cre­ation mech­a­nisms, which increase flex­i­bil­i­ty and reuse of exist­ing code.
 
 
-> ### [Fac­to­ry Method](#Factory-Method)
+> **[Fac­to­ry Method](#factory-method)**
 > [![factory method](./images/cards/factory-method-mini.png)](#Factory-Method)<br>
->[Pro­vides an inter­face for cre­at­ing objects in a super­class, but allows sub­class­es to alter the type of objects that will be cre­at­ed.](#Factory-Method)
+> [Pro­vides an inter­face for cre­at­ing objects in a super­class, but allows sub­class­es to alter the type of objects that will be cre­at­ed.](#Factory-Method)
 
-> ### [Abstract Fac­to­ry](#Abstract-Fac­to­ry)
-> [![Abstract Fac­to­ry](./images/cards/abstract-factory-mini.png)](#Abstract-Fac­to­ry)<br>
->[Lets you pro­duce fam­i­lies of relat­ed objects with­out spec­i­fy­ing their con­crete class­es.](#Abstract-Fac­to­ry)
+> **[Abstract Fac­to­ry](#abstract-fac­to­ry)**
+> [![Abstract Fac­to­ry](./images/cards/abstract-factory-mini.png)](#abstract-fac­to­ry)<br>
+> [Lets you pro­duce fam­i­lies of relat­ed objects with­out spec­i­fy­ing their con­crete class­es.](#abstract-fac­to­ry)
 
-> ### Builder
-> ![builder](./images/cards/builder-mini.png)<br>
->Lets you con­struct com­plex objects step by step. The pat­tern allows you to pro­duce dif­fer­ent types and rep­re­sen­ta­tions of an object using the same con­struc­tion code.
+> **[Builder](#builder)**
+> [![builder](./images/cards/builder-mini.png)](#builder)<br>
+> [Lets you con­struct com­plex objects step by step. The pat­tern allows you to pro­duce dif­fer­ent types and rep­re­sen­ta­tions of an object using the same con­struc­tion code.](#builder)
 
-> ### Pro­to­type
-> ![Pro­to­type](./images/cards/prototype-mini.png)<br>
-> Lets you copy exist­ing objects with­out mak­ing your code depen­dent on their class­es.
+> **[Pro­to­type](#pro­to­type)**
+> [![Pro­to­type](./images/cards/prototype-mini.png)](#pro­to­type)<br>
+> [Lets you copy exist­ing objects with­out mak­ing your code depen­dent on their class­es.](#pro­to­type)
 
-> ### Sin­gle­ton
-> ![singleton](./images/cards/singleton-mini.png)<br>
->Lets you ensure that a class has only one instance, while pro­vid­ing a glob­al access point to this instance.
+> **[Sin­gle­ton](#sin­gle­ton)**
+> [![singleton](./images/cards/singleton-mini.png)](#sin­gle­ton)<br>
+> [Lets you ensure that a class has only one instance, while pro­vid­ing a glob­al access point to this instance.](#sin­gle­ton)
 
 ---
 
