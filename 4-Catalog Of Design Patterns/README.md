@@ -6,15 +6,15 @@
 Cre­ation­al pat­terns pro­vide var­i­ous object cre­ation mech­a­nisms, which increase flex­i­bil­i­ty and reuse of exist­ing code.
 
 
-> **[Fac­to­ry Method](#factory-method)**
-> [![factory method](./images/cards/factory-method-mini.png)](#Factory-Method)<br>
-> [Pro­vides an inter­face for cre­at­ing objects in a super­class, but allows sub­class­es to alter the type of objects that will be cre­at­ed.](#Factory-Method)
+> ### [Fac­to­ry Method](#factory-method-1)
+> [![factory method](./images/cards/factory-method-mini.png)](#factory-method-1)<br>
+> [Pro­vides an inter­face for cre­at­ing objects in a super­class, but allows sub­class­es to alter the type of objects that will be cre­at­ed.](#factory-method-1)
 
-> **[Abstract Fac­to­ry](#abstract-fac­to­ry)**
-> [![Abstract Fac­to­ry](./images/cards/abstract-factory-mini.png)](#abstract-fac­to­ry)<br>
-> [Lets you pro­duce fam­i­lies of relat­ed objects with­out spec­i­fy­ing their con­crete class­es.](#abstract-fac­to­ry)
+> ### [Abstract Fac­to­ry](#abstract-fac­to­ry-1)
+> [![Abstract Fac­to­ry](./images/cards/abstract-factory-mini.png)](#abstract-fac­to­ry-1)<br>
+> [Lets you pro­duce fam­i­lies of relat­ed objects with­out spec­i­fy­ing their con­crete class­es.](#abstract-fac­to­ry-1)
 
-> **[Builder](#builder)**
+> **[Builder](#builder-1)**
 > [![builder](./images/cards/builder-mini.png)](#builder)<br>
 > [Lets you con­struct com­plex objects step by step. The pat­tern allows you to pro­duce dif­fer­ent types and rep­re­sen­ta­tions of an object using the same con­struc­tion code.](#builder)
 
