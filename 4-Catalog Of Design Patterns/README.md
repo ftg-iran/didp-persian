@@ -6,13 +6,13 @@
 Cre­ation­al pat­terns pro­vide var­i­ous object cre­ation mech­a­nisms, which increase flex­i­bil­i­ty and reuse of exist­ing code.
 
 
-> ### Fac­to­ry Method
-> ![factory method](./images/cards/factory-method-mini.png)
->Pro­vides an inter­face for cre­at­ing objects in a super­class, but allows sub­class­es to alter the type of objects that will be cre­at­ed.
+> ### [Fac­to­ry Method](#Factory-Method)
+> [![factory method](./images/cards/factory-method-mini.png)](#Factory-Method)
+>[Pro­vides an inter­face for cre­at­ing objects in a super­class, but allows sub­class­es to alter the type of objects that will be cre­at­ed.](#Factory-Method)
 
-> ### Abstract Fac­to­ry
-> ![Abstract Fac­to­ry](./images/cards/abstract-factory-mini.png)
->Lets you pro­duce fam­i­lies of relat­ed objects with­out spec­i­fy­ing their con­crete class­es.
+> ### [Abstract Fac­to­ry](#Abstract-Fac­to­ry)
+> [![Abstract Fac­to­ry](./images/cards/abstract-factory-mini.png)](#Abstract-Fac­to­ry)
+>[Lets you pro­duce fam­i­lies of relat­ed objects with­out spec­i­fy­ing their con­crete class­es.](#Abstract-Fac­to­ry)
 
 > ### Builder
 > ![builder](./images/cards/builder-mini.png)
@@ -30,13 +30,13 @@ Cre­ation­al pat­terns pro­vide var­i­ous object cre­ation mech­a­nisms
 
 ![factory-method-en](./images/content/factory-method/factory-method-en.png)
 
-## Factory Method
+## Factory Method {#Factory-Method}
 ###### Also known as: Virtual Constructor
 
 
 **Fac­to­ry Method** is a cre­ation­al design pat­tern that pro­vides an inter­face for cre­at­ing objects in a super­class, but allows sub­class­es to alter the type of objects that will be created.
 
-### Prob­lem
+### :worried: Prob­lem
 
 Imag­ine that you’re cre­at­ing a logis­tics man­age­ment appli­ca­tion. The first ver­sion of your app can only han­dle trans­porta­tion by trucks, so the bulk of your code lives inside the Truck class.
 
@@ -50,7 +50,7 @@ Great news, right? But how about the code? At present, most of your code is cou�
 
 As a result, you will end up with pret­ty nasty code, rid­dled with con­di­tion­als that switch the app’s behav­ior depend­ing on the class of trans­porta­tion objects.
 
-### Solu­tion
+### :smiley: Solu­tion
 
 The Fac­to­ry Method pat­tern sug­gests that you replace direct object con­struc­tion calls (using the new oper­a­tor) with calls to a spe­cial fac­to­ry method. Don’t worry: the objects are still cre­at­ed via the new oper­a­tor, but it’s being called from with­in the fac­to­ry method. Objects returned by a fac­to­ry method are often referred to as prod­ucts.
 
@@ -79,7 +79,7 @@ As long as all prod­uct class­es imple­ment a com­mon inter­face, you can p
 The client knows that all trans­port objects are sup­posed to have the `deliver` method, but exact­ly how it works isn’t impor­tant to the client.
 
 
-### Struc­ture
+### :construction: Struc­ture
 
 ![structure-indexed](./images/diagrams/factory-method/structure-indexed.png)
 
@@ -99,7 +99,7 @@ Note, despite its name, prod­uct cre­ation is **not** the pri­ma­ry respon­
 
 Note that the fac­to­ry method doesn’t have to **cre­ate** new instances all the time. It can also return exist­ing objects from a cache, an object pool, or anoth­er source.
 
-### Pseudocode
+### :hash: Pseudocode
 
 This exam­ple illus­trates how the **Fac­to­ry Method** can be used for cre­at­ing cross-plat­form UI ele­ments with­out cou­pling the client code to con­crete UI classes.
 
@@ -203,13 +203,13 @@ method main() is
 ```
 
 
-### Applic­a­bil­i­ty
+### :bulb: Applic­a­bil­i­ty
 
 
-**Use the Fac­to­ry Method when you don’t know before­hand the exact types and depen­den­cies of the objects your code should work with.**
+:beetle: **Use the Fac­to­ry Method when you don’t know before­hand the exact types and depen­den­cies of the objects your code should work with.**
 
 
-The Fac­to­ry Method sep­a­rates prod­uct con­struc­tion code from the code that actu­al­ly uses the prod­uct. There­fore it’s eas­i­er to extend the prod­uct con­struc­tion code inde­pen­dent­ly from the rest of the code.
+:sparkles: The Fac­to­ry Method sep­a­rates prod­uct con­struc­tion code from the code that actu­al­ly uses the prod­uct. There­fore it’s eas­i­er to extend the prod­uct con­struc­tion code inde­pen­dent­ly from the rest of the code.
 
 For exam­ple, to add a new prod­uct type to the app, you’ll only need to cre­ate a new cre­ator sub­class and over­ride the fac­to­ry method in it.
 
@@ -245,7 +245,7 @@ Prob­a­bly the most obvi­ous and con­ve­nient place where this code could b
 
 There­fore, you need to have a reg­u­lar method capa­ble of cre­at­ing new objects as well as reusing exist­ing ones. That sounds very much like a fac­to­ry method.
 
-### How to Imple­ment
+### :clipboard: How to Imple­ment
 
 
 1. Make all prod­ucts fol­low the same inter­face. This inter­face should declare meth­ods that make sense in every product.
@@ -267,7 +267,7 @@ For instance, imag­ine that you have the fol­low­ing hier­ar­chy of class­
 6. If, after all of the extrac­tions, the base fac­to­ry method has become empty, you can make it abstract. If there’s some­thing left, you can make it a default behav­ior of the method.
 
 
-### Pros and Cons
+### ⚖️ Pros and Cons
 
 :heavy_check_mark: You avoid tight cou­pling between the cre­ator and the con­crete products.
 
@@ -277,7 +277,7 @@ For instance, imag­ine that you have the fol­low­ing hier­ar­chy of class­
 
 :heavy_multiplication_x: The code may become more com­pli­cat­ed since you need to intro­duce a lot of new sub­class­es to imple­ment the pat­tern. The best case sce­nario is when you’re intro­duc­ing the pat­tern into an exist­ing hier­ar­chy of cre­ator classes.
 
-### Rela­tions with Other Pat­terns
+### :arrows_counterclockwise: Rela­tions with Other Pat­terns
 
 
 - Many designs start by using **Fac­to­ry Method** (less com­pli­cat­ed and more cus­tomiz­able via sub­class­es) and evolve toward **Abstract Fac­to­ry**, **Pro­to­type**, or **Builder** (more flex­i­ble, but more complicated).
@@ -290,5 +290,10 @@ For instance, imag­ine that you have the fol­low­ing hier­ar­chy of class­
 
 - **Fac­to­ry Method** is a spe­cial­iza­tion of **Tem­plate Method**. At the same time, a Fac­to­ry Method may serve as a step in a large Tem­plate Method.
 
+---
+![abstract-factory-en](./images/content/abstract-factory/abstract-factory-en.png)
 
-    
+## Abstract Factory {#Abstract-Fac­to­ry}
+
+
+**Abstract Fac­to­ry** is a cre­ation­al design pat­tern that lets you pro­duce fam­i­lies of relat­ed objects with­out spec­i­fy­ing their con­crete classes.
