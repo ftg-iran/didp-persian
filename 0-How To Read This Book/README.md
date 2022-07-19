@@ -9,4 +9,3 @@ Many patterns are related, so you can easily jump from topic to topic using nume
 Design patterns are universal. Therefore, all code samples in this book are written in pseudocode that doesn’t constrain the material to a particular programming language.
 
 Prior to studying patterns, you can refresh your memory by going over the [key terms of object-oriented programming](../1-Intoduction%20To%20OOP/README.md). That chapter also explains the basics of UML diagrams, which is useful because the book has tons of them. Of course, if you already know all of that, you can proceed to [learning patterns](../2-Introduction%20To%20Design%20Patterns/README.md ) right away.
-
