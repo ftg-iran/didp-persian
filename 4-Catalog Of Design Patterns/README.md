@@ -30,7 +30,7 @@ Cre­ation­al pat­terns pro­vide var­i­ous object cre­ation mech­a­nisms
 
 ![factory-method-en](./images/content/factory-method/factory-method-en.png)
 
-## Factory Method {#Factory-Method}
+## Factory Method
 ###### Also known as: Virtual Constructor
 
 
@@ -293,7 +293,7 @@ For instance, imag­ine that you have the fol­low­ing hier­ar­chy of class­
 ---
 ![abstract-factory-en](./images/content/abstract-factory/abstract-factory-en.png)
 
-## Abstract Factory {#Abstract-Fac­to­ry}
+## Abstract Factory
 
 
 **Abstract Fac­to­ry** is a cre­ation­al design pat­tern that lets you pro­duce fam­i­lies of relat­ed objects with­out spec­i­fy­ing their con­crete classes.
