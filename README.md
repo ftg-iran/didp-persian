@@ -70,33 +70,33 @@
 
 | تاریخ اتمام ترجمه      | مترجم | سرفصل     |
 | :---:        |    :----:   |          :---: |
-|-|رزور نشده| Introduction to OOP |
-|-|رزور نشده| Introduction to design patterns |
-|-|رزور نشده| Software design principle |
-|-|رزور نشده| Design principle |
-|-|رزور نشده| SOLID principle |
-|-|رزور نشده| Factory method |
-|-|رزور نشده| Abstract factoy |
-|-|رزور نشده| Builder |
-|-|رزور نشده| Prototype |
-|-|رزور نشده| Singleton |
-|-|رزور نشده| Adapter |
-|-|رزور نشده| Bridge |
-|-|رزور نشده| Composite |
-|-|رزور نشده| Decorator |
-|-|رزور نشده| Facade |
-|-|رزور نشده| Flyweight |
-|-|رزور نشده| Proxy |
-|-|رزور نشده| Chain of responsibility |
-|-|رزور نشده| Command |
-|-|رزور نشده| Iterator |
-|-|رزور نشده| Mediator |
-|-|رزور نشده| Memento |
-|-|رزور نشده| Observer |
-|-|رزور نشده| State |
-|-|رزور نشده| Strategy |
-|-|رزور نشده| Template method |
-|-|رزور نشده| Visitor & Conclusion|
+|-|رزرو نشده| Introduction to OOP |
+|-|رزرو نشده| Introduction to design patterns |
+|-|رزرو نشده| Software design principle |
+|-|رزرو نشده| Design principle |
+|-|رزرو نشده| SOLID principle |
+|-|رزرو نشده| Factory method |
+|-|رزرو نشده| Abstract factoy |
+|-|رزرو نشده| Builder |
+|-|رزرو نشده| Prototype |
+|-|رزرو نشده| Singleton |
+|-|رزرو نشده| Adapter |
+|-|رزرو نشده| Bridge |
+|-|رزرو نشده| Composite |
+|-|رزرو نشده| Decorator |
+|-|رزرو نشده| Facade |
+|-|رزرو نشده| Flyweight |
+|-|رزرو نشده| Proxy |
+|-|رزرو نشده| Chain of responsibility |
+|-|رزرو نشده| Command |
+|-|رزرو نشده| Iterator |
+|-|رزرو نشده| Mediator |
+|-|رزرو نشده| Memento |
+|-|رزرو نشده| Observer |
+|-|رزرو نشده| State |
+|-|رزرو نشده| Strategy |
+|-|رزرو نشده| Template method |
+|-|رزرو نشده| Visitor & Conclusion|
 
 
 
