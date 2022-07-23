@@ -1,12 +1,11 @@
 # How to Read This Book
 
-This book con­tains the descrip­tions of 22 clas­sic design pat­terns for­mu­lat­ed by the “Gang of Four” (or sim­ply GoF) in 1994.
+This book contains the descriptions of 22 classic design patterns formulated by the “Gang of Four” (or simply GoF) in 1994.
 
-Each chap­ter explores a par­tic­u­lar pat­tern. There­fore, you can read from cover to cover or by pick­ing the pat­terns you’re inter­est­ed in.
+Each chapter explores a particular pattern. Therefore, you can read from cover to cover or by picking the patterns you’re interested in.
 
-Many pat­terns are relat­ed, so you can eas­i­ly jump from topic to topic using numer­ous anchors. The end of each chap­ter has a list of links between the cur­rent pat­tern and oth­ers. If you see the name of a pat­tern that you haven’t seen yet, just keep read­ing—this item will appear in one of the next chapters.
+Many patterns are related, so you can easily jump from topic to topic using numerous anchors. The end of each chapter has a list of links between the current pattern and others. If you see the name of a pattern that you haven’t seen yet, just keep reading—this item will appear in one of the next chapters.
 
-Design pat­terns are uni­ver­sal. There­fore, all code sam­ples in this book are writ­ten in pseudocode that doesn’t con­strain the mate­r­i­al to a par­tic­u­lar pro­gram­ming language.
+Design patterns are universal. Therefore, all code samples in this book are written in pseudocode that doesn’t constrain the material to a particular programming language.
 
-Prior to study­ing pat­terns, you can refresh your mem­o­ry by going over the [key terms of object-ori­ent­ed pro­gram­ming](../1-Intoduction%20To%20OOP/README.md). That chap­ter also explains the basics of UML dia­grams, which is use­ful because the book has tons of them. Of course, if you already know all of that, you can pro­ceed to [learn­ing pat­terns](../2-Introduction%20To%20Design%20Patterns/README.md ) right away.
-
+Prior to studying patterns, you can refresh your memory by going over the [key terms of object-oriented programming](../1-Intoduction%20To%20OOP/README.md). That chapter also explains the basics of UML diagrams, which is useful because the book has tons of them. Of course, if you already know all of that, you can proceed to [learning patterns](../2-Introduction%20To%20Design%20Patterns/README.md ) right away.

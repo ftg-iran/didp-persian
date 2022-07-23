@@ -3,65 +3,64 @@
 ## What's a Design Pattern?
 
 
-**Design pat­terns** are typ­i­cal solu­tions to com­mon­ly occur­ring prob­lems in soft­ware design. They are like pre-made blue­prints that you can cus­tomize to solve a recur­ring design prob­lem in your code.
+**Design patterns** are typical solutions to commonly occurring problems in software design. They are like pre-made blueprints that you can customize to solve a recurring design problem in your code.
 
-You can’t just find a pat­tern and copy it into your pro­gram, the way you can with off-the-shelf func­tions or libraries. The pat­tern is not a spe­cif­ic piece of code, but a gen­er­al con­cept for solv­ing a par­tic­u­lar prob­lem. You can fol­low the pat­tern details and imple­ment a solu­tion that suits the real­i­ties of your own program.
+You can’t just find a pattern and copy it into your program, the way you can with off-the-shelf functions or libraries. The pattern is not a specific piece of code, but a general concept for solving a particular problem. You can follow the pattern details and implement a solution that suits the realities of your own program.
 
-Pat­terns are often con­fused with algo­rithms, because both con­cepts describe typ­i­cal solu­tions to some known prob­lems. While an algo­rithm always defines a clear set of actions that can achieve some goal, a pat­tern is a more high-level descrip­tion of a solu­tion. The code of the same pat­tern applied to two dif­fer­ent pro­grams may be different.
+Patterns are often confused with algorithms, because both concepts describe typical solutions to some known problems. While an algorithm always defines a clear set of actions that can achieve some goal, a pattern is a more high-level description of a solution. The code of the same pattern applied to two different programs may be different.
 
-An anal­o­gy to an algo­rithm is a cook­ing recipe: both have clear steps to achieve a goal. On the other hand, a pat­tern is more like a blue­print: you can see what the result and its fea­tures are, but the exact order of imple­men­ta­tion is up to you.
+An analogy to an algorithm is a cooking recipe: both have clear steps to achieve a goal. On the other hand, a pattern is more like a blueprint: you can see what the result and its features are, but the exact order of implementation is up to you.
 
-### What does the pat­tern con­sist of?
-
-
-Most pat­terns are described very for­mal­ly so peo­ple can repro­duce them in many con­texts. Here are the sec­tions that are usu­al­ly present in a pat­tern description:
+### What does the pattern consist of?
 
 
-- **Intent** of the pat­tern briefly describes both the prob­lem and the solution.
+Most patterns are described very formally so people can reproduce them in many contexts. Here are the sections that are usually present in a pattern description:
 
-- **Moti­va­tion** fur­ther explains the prob­lem and the solu­tion the pat­tern makes possible.
 
-- **Struc­ture** of class­es shows each part of the pat­tern and how they are related.
+- **Intent** of the pattern briefly describes both the problem and the solution.
 
-- **Code exam­ple** in one of the pop­u­lar pro­gram­ming lan­guages makes it eas­i­er to grasp the idea behind the pattern.
+- **Motivation** further explains the problem and the solution the pattern makes possible.
 
-Some pat­tern cat­a­logs list other use­ful details, such as applic­a­bil­i­ty of the pat­tern, imple­men­ta­tion steps and rela­tions with other patterns.
+- **Structure** of classes shows each part of the pattern and how they are related.
 
-### Clas­si­fi­ca­tion of pat­terns
+- **Code example** in one of the popular programming languages makes it easier to grasp the idea behind the pattern.
 
-Design pat­terns dif­fer by their com­plex­i­ty, level of detail and scale of applic­a­bil­i­ty to the entire sys­tem being designed. I like the anal­o­gy to road con­struc­tion: you can make an inter­sec­tion safer by either installing some traf­fic lights or build­ing an entire multi-level inter­change with under­ground pas­sages for pedestrians.
+Some pattern catalogs list other useful details, such as applicability of the pattern, implementation steps and relations with other patterns.
 
-The most basic and low-level pat­terns are often called idioms. They usu­al­ly apply only to a sin­gle pro­gram­ming language.
+### Classification of patterns
 
-The most uni­ver­sal and high-level pat­terns are archi­tec­tur­al pat­terns. Devel­op­ers can imple­ment these pat­terns in vir­tu­al­ly any lan­guage. Unlike other pat­terns, they can be used to design the archi­tec­ture of an entire application.
+Design patterns differ by their complexity, level of detail and scale of applicability to the entire system being designed. I like the analogy to road construction: you can make an intersection safer by either installing some traffic lights or building an entire multi-level interchange with underground passages for pedestrians.
 
-In addi­tion, all pat­terns can be cat­e­go­rized by their intent, or pur­pose. This book cov­ers three main groups of patterns:
+The most basic and low-level patterns are often called idioms. They usually apply only to a single programming language.
 
-- **Cre­ation­al pat­terns** pro­vide object cre­ation mech­a­nisms that increase flex­i­bil­i­ty and reuse of exist­ing code.
+The most universal and high-level patterns are architectural patterns. Developers can implement these patterns in virtually any language. Unlike other patterns, they can be used to design the architecture of an entire application.
 
-- **Struc­tur­al pat­terns** explain how to assem­ble objects and class­es into larg­er struc­tures, while keep­ing the struc­tures flex­i­ble and efficient.
+In addition, all patterns can be categorized by their intent, or purpose. This book covers three main groups of patterns:
 
-- **Behav­ioral pat­terns** take care of effec­tive com­mu­ni­ca­tion and the assign­ment of respon­si­bil­i­ties between objects.
+- **Creational patterns** provide object creation mechanisms that increase flexibility and reuse of existing code.
 
-### Who invent­ed pat­terns?
+- **Structural patterns** explain how to assemble objects and classes into larger structures, while keeping the structures flexible and efficient.
 
-That’s a good, but not a very accu­rate, ques­tion. Design pat­terns aren’t obscure, sophis­ti­cat­ed con­cepts—quite the oppo­site. Pat­terns are typ­i­cal solu­tions to com­mon prob­lems in object-ori­ent­ed design. When a solu­tion gets repeat­ed over and over in var­i­ous projects, some­one even­tu­al­ly puts a name to it and describes the solu­tion in detail. That’s basi­cal­ly how a pat­tern gets discovered.
+- **Behavioral patterns** take care of effective communication and the assignment of responsibilities between objects.
 
-The con­cept of pat­terns was first described by Christo­pher Alexan­der in A Pat­tern Lan­guage: Towns, Build­ings, Con­struc­tion[^1]. The book describes a “lan­guage” for design­ing the urban envi­ron­ment. The units of this lan­guage are pat­terns. They may describe how high win­dows should be, how many lev­els a build­ing should have, how large green areas in a neigh­bor­hood are sup­posed to be, and so on.
+### Who invented patterns?
 
-The idea was picked up by four authors: Erich Gamma, John Vlis­sides, Ralph John­son, and Richard Helm. In 1994, they pub­lished Design Pat­terns: Ele­ments of Reusable Object-Ori­ent­ed Soft­ware[^2], in which they applied the con­cept of design pat­terns to pro­gram­ming. The book fea­tured 23 pat­terns solv­ing var­i­ous prob­lems of object-ori­ent­ed design and became a best-sell­er very quick­ly. Due to its lengthy name, peo­ple start­ed to call it “the book by the gang of four” which was soon short­ened to sim­ply “the GoF book”.
+That’s a good, but not a very accurate, question. Design patterns aren’t obscure, sophisticated concepts—quite the opposite. Patterns are typical solutions to common problems in object-oriented design. When a solution gets repeated over and over in various projects, someone eventually puts a name to it and describes the solution in detail. That’s basically how a pattern gets discovered.
 
-Since then, dozens of other object-ori­ent­ed pat­terns have been dis­cov­ered. The “pat­tern approach” became very pop­u­lar in other pro­gram­ming fields, so lots of other pat­terns now exist out­side of object-ori­ent­ed design as well.
+The concept of patterns was first described by Christopher Alexander in A Pattern Language: Towns, Buildings, Construction[^1]. The book describes a “language” for designing the urban environment. The units of this language are patterns. They may describe how high windows should be, how many levels a building should have, how large green areas in a neighborhood are supposed to be, and so on.
+
+The idea was picked up by four authors: Erich Gamma, John Vlissides, Ralph Johnson, and Richard Helm. In 1994, they published Design Patterns: Elements of Reusable Object-Oriented Software[^2], in which they applied the concept of design patterns to programming. The book featured 23 patterns solving various problems of object-oriented design and became a best-seller very quickly. Due to its lengthy name, people started to call it “the book by the gang of four” which was soon shortened to simply “the GoF book”.
+
+Since then, dozens of other object-oriented patterns have been discovered. The “pattern approach” became very popular in other programming fields, so lots of other patterns now exist outside of object-oriented design as well.
 
 ## Why Should I Learn Patterns?
 
 
-The truth is that you might man­age to work as a pro­gram­mer for many years with­out know­ing about a sin­gle pat­tern. A lot of peo­ple do just that. Even in that case, though, you might be imple­ment­ing some pat­terns with­out even know­ing it. So why would you spend time learn­ing them?
+The truth is that you might manage to work as a programmer for many years without knowing about a single pattern. A lot of people do just that. Even in that case, though, you might be implementing some patterns without even knowing it. So why would you spend time learning them?
 
-- Design pat­terns are a toolk­it of tried and test­ed solu­tions to com­mon prob­lems in soft­ware design. Even if you never encounter these prob­lems, know­ing pat­terns is still use­ful because it teach­es you how to solve all sorts of prob­lems using prin­ci­ples of object-ori­ent­ed design.
+- Design patterns are a toolkit of tried and tested solutions to common problems in software design. Even if you never encounter these problems, knowing patterns is still useful because it teaches you how to solve all sorts of problems using principles of object-oriented design.
 
-- Design pat­terns define a com­mon lan­guage that you and your team­mates can use to com­mu­ni­cate more effi­cient­ly. You can say, “Oh, just use a Sin­gle­ton for that,” and every­one will under­stand the idea behind your sug­ges­tion. No need to explain what a sin­gle­ton is if you know the pat­tern and its name.
-
+- Design patterns define a common language that you and your teammates can use to communicate more efficiently. You can say, “Oh, just use a Singleton for that,” and everyone will understand the idea behind your suggestion. No need to explain what a singleton is if you know the pattern and its name.
 
 [^1]: A Pattern Language: Towns, Buildings, Construction: https://refactoring.guru/pattern-language-book
 [^2]: Design Patterns: Elements of Reusable Object-Oriented Software: https://refactoring.guru/gof-book
