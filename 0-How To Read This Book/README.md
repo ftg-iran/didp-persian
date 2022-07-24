@@ -1,11 +1,11 @@
-# How to Read This Book
+# چطور این کتاب را بخوانیم
 
-This book contains the descriptions of 22 classic design patterns formulated by the “Gang of Four” (or simply GoF) in 1994.
+این کتاب شامل شرح 22 الگوی طراحی کلاسیک است که توسط "Gang of Four" (یا بطور مختصر GoF) در سال 1994 طراحی شده است.
 
-Each chapter explores a particular pattern. Therefore, you can read from cover to cover or by picking the patterns you’re interested in.
+هر فصل یک الگوی خاص را بررسی می کند. بنابراین، می توانید از ابتدا تا انتها یا با انتخاب الگوهای مورد علاقه خود به مطالعه کتاب بپردازید.
 
-Many patterns are related, so you can easily jump from topic to topic using numerous anchors. The end of each chapter has a list of links between the current pattern and others. If you see the name of a pattern that you haven’t seen yet, just keep reading—this item will appear in one of the next chapters.
+بسیاری از الگوها به هم مرتبط هستند، بنابراین می توانید به راحتی با استفاده از ثبت  متعدد قسمت ها از موضوعی به موضوع دیگر بپرید. پایان هر فصل فهرستی از ارتباط بین الگوی (pattern) فعلی و سایر الگوها دارد. اگر نام الگویی را می‌بینید که هنوز با آن برخورد نکرده اید، به خواندن کتاب ادامه دهید - این الگو در یکی از فصل‌های آتی می آید.
 
-Design patterns are universal. Therefore, all code samples in this book are written in pseudocode that doesn’t constrain the material to a particular programming language.
+الگوهای طراحی یک موضوع جامع هستند. بنابراین، تمام نمونه‌ کدها در این کتاب با شبه کد نوشته شده‌اند که مطالب را به یک زبان برنامه‌نویسی خاص محدود نمی‌کند.
 
-Prior to studying patterns, you can refresh your memory by going over the [key terms of object-oriented programming](../1-Intoduction%20To%20OOP/README.md). That chapter also explains the basics of UML diagrams, which is useful because the book has tons of them. Of course, if you already know all of that, you can proceed to [learning patterns](../2-Introduction%20To%20Design%20Patterns/README.md ) right away.
+قبل از مطالعه الگوها، می توانید با [مرور مطالب کلیدی برنامه نویسی شی گرا](../1-Introduction%20To%20OOP/README.md) ، آن ها را به یاد آورید. این فصل همچنین اصول اولیه نمودارهای UML را توضیح می دهد، چون که کتاب از آن ها زیاد استفاده کرده است پس یادگیری آن مفید است. البته، اگر از قبل این موارد را می دانید، می توانید مستقیماً به قسمت [یادگیری الگوها](../2-Introduction%20To%20Design%20Patterns/README.md) بروید.
