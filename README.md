@@ -72,20 +72,20 @@
 
 | تاریخ اتمام ترجمه      | مترجم | سرفصل     |
 | :---:        |    :----:   |          :---: |
-| <span dir="rtl"> 15 مرداد </span> | SepehrRasouli | Introduction to OOP |
-|-|رزرو نشده| Introduction to design patterns |
+| <span dir="rtl"> 15 مرداد </span> | Sepehr Rasouli | Introduction to OOP |
+| <span dir="rtl"> 15 شهریور </span> | MohammadAmir Lotfi poor | Introduction to design patterns |
 |-|رزرو نشده| Software design principle |
 |-|رزرو نشده| Design principle |
-| <span dir="rtl"> 15 شهریور </span> | MohammadMahdi-Akhondi | SOLID principle |
-|-|رزرو نشده| Factory method |
+| <span dir="rtl"> 15 شهریور </span> | MohammadMahdi Akhondi | SOLID principle |
+| <span dir="rtl"> 20 شهریور </span> | Komeil Parseh | Factory method |
 |-|رزرو نشده| Abstract factoy |
 |-|رزرو نشده| Builder |
 |-|رزرو نشده| Prototype |
 |-|رزرو نشده| Singleton |
 |-|رزرو نشده| Adapter |
-|-|رزرو نشده| Bridge |
+| <span dir="rtl"> 20 مرداد </span> | Amirhosein Rahmati | Bridge |
 | <span dir="rtl"> 7 شهریور </span> | mehrdadbn9 | Composite |
-| <span dir="rtl"> 15 شهریور </span> | MohammadMahdi-Akhondi | Decorator |
+| <span dir="rtl"> 15 شهریور </span> | MohammadMahdi Akhondi | Decorator |
 |-|رزرو نشده| Facade |
 |-|رزرو نشده| Flyweight |
 |-|رزرو نشده| Proxy |
