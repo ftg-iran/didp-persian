@@ -72,7 +72,7 @@
 
 | تاریخ اتمام ترجمه      | مترجم | سرفصل     |
 | :---:        |    :----:   |          :---: |
-| <span dir="rtl"> 15 مرداد </span> | Sepehr Rasouli | Introduction to OOP |
+| <span dir="rtl"> اتمام ترجمه </span> | Sepehr Rasouli | Introduction to OOP |
 | <span dir="rtl"> 15 شهریور </span> | MohammadAmir Lotfi poor | Introduction to design patterns |
 |-|رزرو نشده| Software design principle |
 |-|رزرو نشده| Design principle |
