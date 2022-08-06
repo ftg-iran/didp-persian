@@ -1,211 +1,119 @@
-# INTRODUCTION TO OOP
+# مقدمه ای بر OOP
+## مبانی OOP
+برنامه نویسی شیء گرا یا OOP(**O**bject **O**riented **P**rogramming) یک الگو بر پایه بسته بندی تکه های اطلاعات، و رفتار های مرتبط با آن ها، در دسته های مخصوصی به نام **اشیاء** که از "طرح اولیه" ای ساخته شده توسط برنامه نویس به نام **کلاس** ها ایجاد می شوند، است.  
 
-## Basics of OOP
+ ### اشیاء، کلاس ها
 
-**O**bject-**O**riented **P**rogramming is a paradigm based on the concept of wrapping pieces of data, and behavior  related to that 
-data, into special bundles called __objects__, which are constructed from a set of “blueprints”, defined by a programmer, called 
-__classes__.
-
-### Objects, classes
-
-Do you like cats? I hope you do because I’ll try to explain the OOP concepts using various cat examples.
+از گربه ها خوشتان میاید ؟ امیدوارم که اینطور باشد چون سعی می کنم مباحث OOP را با استفاده کردن از گربه ها یاد بدهم.
 
 ![image1](1.png)
 
-_This is a UML class diagram. You’ll see a lot of such diagrams in the book._
+*این یک نمودار کلاس UML است. چنین نمودار هایی را در کتاب زیاد خواهید دید.*
 
-Say you have a cat named Oscar. Oscar is an object, an instance of the Cat class. Every `cat` has a lot of standard attributes:
-name, sex, age, weight, color, favorite food, etc. These are the class’s fields.
+برای مثال، تصور کنید گربه ای به نام Oscar دارید. Oscar یک شیء است، یک نمونه از کلاس Cat. هر `cat` صفت های استاندارد بسیاری دارد : اسم، سن، جنسیت، وزن، رنگ، غذای موردعلاقه و غیره.این ها فیلد(Field) های کلاس هستند.
+همه گربه ها نیز رفتار مشابهی دارند: نفس می کشند، غذا می خورند، می‌دوند، می‌خوابند و میو میو می‌کنند. این ها متد(Method) های کلاس هستند.
+در مجموع، فیلد ها و متد ها به عنوان  اعضاء کلاس نیز شناخته می‌شوند.
+اطلاعات ذخیره شده در فیلد های شیء معمولا به نام وضعیت شناخته می‌شوند و تمامی متد های شیء رفتار آن را تعریف می کنند.
 
-All cats also behave similarly: they breathe, eat, run, sleep and meow. These are the class’s _methods_. Collectively, fields and 
-methods can be referenced as the _members_ of their class.
+![image1](2.png)
 
-Data stored inside the object’s fields is often referenced as state, and all the object’s methods define its _behavior_.
+*اشیاء نمونه های کلاس ها هستند.* 
 
-![image2](2.png)
+لونا، گربه ی دوستتان، نیز نمونه ای از  کلاس `Cat` است. همان صفت های Oscar را دارد. تفاوتشان در مقادیر این صفت هاست. جنس آن ماده است، رنگ متفاوت و وزن کمتری دارد.
+پس یک *کلاس* مانند یک طرح اولیه است که ساختار اشیاء را که نمونه های واقعی آن کلاس هستند، را تعریف می کند. 
+## سلسله مراتب کلاس ها
+وقتی در مورد یک کلاس صحبت میکنیم همه چیز خوب و مرتب است. طبیعتاً یک برنامه ی واقعی شامل بیشتر از یک کلاس است. برخی از این کلاس ها ممکن است در سلسله مراتب کلاس ها سازماندهی شوند. بیاید بفهمیم این به چه معناست.
+تصور کنید همسایه‌تان سگی به اسم Fido دارد. به نظر می‌رسد، سگ ها و گربه ها اشتراکات زیادی دارند: اسم، جتسیت، سن و رنگ صفات مشترک گربه ها و سگ ها است. سگ ها می‌توانند مثل گربه ها نفس بکشند، بخوابند و بدوند. پس انگار که ما می‌توانیم کلاس پایه `Animal` را تعریف کنیم که صفات و رفتار های مشترک را لیست کند. 
+یک کلاس والد، مانند کلاسی که به تازگی تعریف کردیم،  یک **سوپرکلاس** است. کلاس های فرزند، **ساب‌کلاس** هستند.  ساب‌کلاس ها رفتار و وضعیتشان را از والدشان به ارث می‌برند و فقط صفات یا رفتارهایی را تعریف می‌کنند که متفاوت است. بنابراین، کلاس  `Cat` متد `meow‍` را دارد، و کلاس `Dog` متد `bark`.
 
-_Objects are instances of classes._
+![image1](3.png)
 
-Luna, your friend’s cat, is also an instance of the `Cat` class. It has the same set of attributes as Oscar. The difference is in
-values of these attributes: its sex is female, it has a different color, and weighs less.
+*نمودار UML یک سلسله مراتب کلاس. تمامی کلاس های این نمودار بخشی از سلسله مراتب کلاس `Animal` هستند.*
+ 
+با فرص اینکه ما یک پیشنیاز کاری مرتبط داریم، می‌توانیم از این هم فراتر رویم و یک کلاس عمومی تر برای تمامی موجودات زنده به نام `Organism`  بسازیم که تبدیل به یک سوپرکلاس برای `Animals` و `Plants` می‌شود. اینچنین هرم کلاس  ها، **سلسله مراتب** است. در چنین سلسله ای، کلاس `Cat` همه چیز را  از هردو کلاس `Animal` و `Organism` به ارث می‌برد.
 
-So a _class_ is like a blueprint that defines the structure for objects, which are concrete instances of that class.
+![image1](4.png)
 
-### Class hierarchies
+*کلاس ها در یک نمودار UML می‌توانند ساده شوند اگر نشان دادن روابط آنها مهم تر از محتوای آنها باشد.* 
 
-Everything’s fine and dandy when we talk about one class. Naturally, a real program contains more than a single class. Some of these 
-classes might be organized into __class hierarchies__. Let’s find out what that means.
+ساب‌کلاس ها می‌توانند رفتار هایی که به ارث می‌ برند را از نو نویسی کنند. یک ساب‌کلاس می تواند کاملا تمامی رفتار های پیشفرض را جایگزین کند یا تنها چند چیز اضافه کند. 
+# اصول OOP
 
-Say your neighbor has a dog called Fido. It turns out, dogs and cats have a lot in common: name, sex, age, and color are attributes 
-of both dogs and cats. Dogs can breathe, sleep and run the same way cats do. So it seems that we can define the base `Animal` class 
-that would list the common attributes and behaviors.
+![image1](5.png)
 
-A parent class, like the one we’ve just defined, is called a __superclass__. Its children are __subclasses__. Subclasses inherit 
-state and behavior from their parent, defining only attributes or behaviors that differ. Thus, the `Cat` class would have the `meow` 
-method, and the `Dog` class the `bark` method.
+برنامه نویسی شیء گرا بر چهار اصل استوار است، مفاهیمی که آن را از بقیه ی الگوهای برنامه نویسی متمایز می کند. 
+## (Abstraction) انتزاع
+بسیاری  از اوقات هنگامی که یک برنامه  OOP می سازید، اشیاء برنامه را بر اساس اشیاء دنیای واقعی شکل می دهید. اما، اشیاء در برنامه ها، اشیاء دنیای واقعی را با دقت 100٪ نشان نمی‌ دهند ( و به ندرت لازم است که بدهند). 
+در عوض، اشیاء شما فقط ویژگی ها و رفتار های اشیاء واقعی را در یک زمینه خاص *مدل سازی* میکنند و بقیه را نادیده می‌گیرند.  
+برای مثال، یک  کلاس `Airplane` میتواند هم در یک شبیه ساز پرواز و هم در یک برنامه ی رزرو پرواز وجود داشته باشد.  در حالی که کلاس اولی جزئیات مربوط به پرواز را داشته باشد، اما کلاس دومی فقط نقشه صندلی ها و اینکه کدام صندلی ها در دسترس هستند.
 
-![image3](3.png)
+![image1](6.png)
 
-_UML diagram of a class hierarchy. All classes in this diagram are part of the `Animal` class hierarchy._
+*مدل های مختلفی از یک شیء یکسان واقعی.*
 
-Assuming that we have a related business requirement, we can go even further and extract a more general class for all living 
-`Organisms` which will become a superclass for `Animals` and `Plants` . Such a pyramid of classes is a __hierarchy__. In such a 
-hierarchy, the `Cat` class inherits everything from both the `Animal` and `Organism` classes.
+انتزاع مدلی از یک شیء یا پدیده ای در دنیای واقعی، محدود به زمینه ای خاص است که تمامی جزئیات مرتبط با این زمینه را با دقت بسیار زیاد نمایش و مابقی را حذف میکند.
 
-![image4](4.png)
+## (Encapsulation) کپسوله‌ سازی
+* برای روشن کردن موتور خودرویی، فقط باید کلیدی را بچرخانید یا دکمه ای را فشار دهید.  نیازی به اتصال سیم ها به زیر کاپوت، چرخاندن میل لنگ و سیلندرها و شروع چرخه قدرت موتور ندارید.  این جزئیات زیر کاپوت ماشین مخفی اند. شما فقط یک رابط ساده دارید: یک دکمه، یک فرمان و چند پدال. این نشان میدهد که چگونه هر شیء یک رابط دارد - یک جزء عمومی شیءای که برای تعامل با اشیاء دیگر باز است. 
+کپسوله سازی توانایی یک شیء است  برای پنهان کردن بخش هایی از وضعیت و رفتار های خود از اشیاء دیگر، و تنها در معرض قرار دادن یک رابط محدود به بقیه ی برنامه.
+کپسوله کردن چیزی یعنی  `private` کردن آن، و بنابراین تنها در دسترس بودن آن توسط خود متود های داخل کلاس خودش. حالتی کمتر محدود به نام `protected` وجود دارد که عضوی از یک کلاس را برای ساب‌کلاس ها نیز در دسترس قرار می‌دهد.  
+اینترفیس ها و کلاس/متود های انتزاعی اکثر زبان های برنامه نویسی بر پایه مفاهیم انتزاعی و کپسوله سازی هستند. در زبان های برنامه نویسی شیء گرا مدرن، مکانیزم اینترفیس(معمولا با کلمه کلیدی `interface`  یا `protocol` تعریف میشود) به شما این امکان را میدهد که قواعد تعامل بین اشیاء را تعریف کنید.  این یکی از دلایلی است که  اینترفیس ها فقط  به رفتار اشیاء  اهمیت میدهند و اینکه چرا نمیتوانید  یک فیلد در اینترفیس ها  تعریف کنید.
+این واقعیت که کلمه اینترفیس مخفف بخش عمومی یک شیء است، در حالی که نوع `interface` در اکثر زبان های برنامه نویسی وجود دارد، بسیار گیج کننده است و من در این مورد با شما موافقم.
+تصور کنید اینترفیس `Flying Transport` همرا با متود `fly(origin, destination, passengers)` را دارید. هنگامی طراحی یک شبیه ساز حمل و نقل هوایی، میتوانید کلاس `Airport` را محدود کنید تا فقط با اشیایی که `FlyingTransport` را پیاده سازی میکنند کار کند. سپس، مطمئن خواهید بود که هر شیء  داده شده به شیء هواپیما، چه `Airplane` ، چه `Helicopter`  و چه یک `DomesticatedGryphon` خواهد توانست در این نوع فرودگاه، فرود بیاید یا از آن خارج شود.
 
-_Classes in a UML diagram can be simplified if it’s more important to show their relations than their contents._
+![image1](7.png)
 
-Subclasses can override the behavior of methods that they inherit from parent classes. A subclass can either completely replace the 
-default behavior or just enhance it with some extra stuff.
+*نمودار UML چند کلاس که یک رابط را پیاده سازی میکنند.* 
 
-## Pillars of OOP
+میتوانید پیاده سازی متود `fly` را در این کلاس ها به هر شیوه ای که میخواهید تغییر دهید. تا زمانی که امضای متود برابر همانی است که در رابط تعریف کردیم، تمامی نمونه های `Airport` میتوانند با اشیاء پرنده شما به راحتی و خوبی کار کنند. 
+## (Inheritance)وراثت
+‍‍‍*وراثت* قابلیت ساخت کلاس های جدید، بر روی کلاس های فعلی است. مهم ترین مزیت  وراثت، استفاده مجدد از کد است.  اگر میخواهید کلاسی بسازید که فقط کمی از کلاس فعلی متفاوت است، نیازی به کپی کردن کد نیست. در عوض، کلاس فعلی را  گسترش میدهید و  عملکرد اضافه را به ساب کلاسی که از آن گرفتید اضافه میکنید، که فیلد ها و متد های سوپرکلاس را به ارث میبرد. 
+پیامد استفاده از وراثت این است که ساب‌کلاس ها دارای رابط یکسانی با کلاس والدشان هستند. شما نمیتوانید متدی را در ساب کلاسی پنهان کنید اگر در سوپرکلاس تعریف شده باشند. همچنین شما باید تمامی متود های انتزاعی را پیاده سازی کنید، حتی اگر برای ساب کلاس شما معنی نداشته باشند.
 
-Object-oriented programming is based on four pillars, concepts that differentiate it from other programming paradigms.
+![image1](8.png)
 
-![image5](5.png)
+*نمودار UML گسترش یک کلاس واحد در مقابل پیاده سازی چندین رابط به طور همزمان.*
 
-### Abstraction
+در اکثر زبان های برنامه نویسی یک ساب‌کلاس تنها میتواند یک سوپرکلاس را گسترش دهد. از آن طرف، هرکلاسی میتواند چندین رابط در آن واحد داشته باشد. اما، همانطور که قبلا گفتم، اگر یک سوپرکلاس رابطی را پیاده سازی کند، تمامی ساب کلاس هایش هم باید همینکار را انجام دهند.
+## (Polymorphism) چند ریختی
+بیایید به چند مثال `animal` نگاهی بیندازیم. بیشتر حیوانات میتوانند از خودشان صدا تولید کنند.  میتوانیم پیش بینی  کنیم که تمامی ساب‌کلاس ها نیاز خواهند داشت که متد پایه `makeSound`  را از نو نویسی کنند تا بتوانند  صدای  درستی را تولید کنند;  بنابراین می‌توانیم آن را فوراً انتزاعی اعلام کنیم. این به ما اجازه میدهد هر پیاده سازی پیشفرض متد را در سوپرکلاس نادیده، اما همه ی ساب‌کلاس ها را مجبور کنیم تا متد خودشان را ارائه دهند. 
 
-Most of the time when you’re creating a program with OOP, you shape objects of the program based on real-world objects. However, 
-objects of the program don’t represent the originals with 100% accuracy (and it’s rarely required that they do). Instead, your 
-objects only _model_ attributes and behaviors of real objects in a specific context, ignoring the rest.
+![image1](9.png)
 
-For example, an `Airplane` class could probably exist in both a flight simulator and a flight booking application. But in the former 
-case, it would hold details related to the actual flight, whereas in the latter class you would care only about the seat map and 
-which seats are available.
+تصور کنید چند گربه و سگ را در کیسه ی بزرگی گذاشتید. سپس، با چشمان بسته، حیوانات را یکی یکی بیرون میاوریم. پس از برداشتن یک حیوان از کیسه، مطمئن نیستیم که چه حیوانی است. اما، اگر به اندازه ی کافی آن را در آغوش بگیریم، حیوان بسته به کلاس واقعی خود، صدای شادی خاصی را تولید میکند.
 
-![image6](6.png)
-
-_Different models of the same real-world object._
-
-_Abstraction_ is a model of a real-world object or phenomenon, limited to a specific context, which represents all details relevant to this context with high 
-accuracy and omits all the rest.
-
-### Encapsulation
-
-To start a car engine, you only need to turn a key or press a button. You don’t need to connect wires under the hood, rotate the 
-crankshaft and cylinders, and initiate the power cycle of the engine. These details are hidden under the hood of the car. You have 
-only a simple interface: a start switch, a steering wheel and some pedals. This illustrates how each object has an __interface__—a 
-public part of an object, open to interactions with other objects.
-
-_Encapsulation_ is the ability of an object to hide parts of its state and behaviors from other objects, exposing only a limited 
-interface to the rest of the program.
-
-To _encapsulate_ something means to make it `private` , and thus accessible only from within the methods of its own class. There’s a 
-little bit less restrictive mode called `protected` that makes a member of a class available to subclasses as well.
-
-Interfaces and abstract classes/methods of most programming languages are based on the concepts of abstraction and encapsulation. In 
-modern object-oriented programming languages, the interface mechanism (usually declared with the `interface` or `protocol` keyword) 
-lets you define contracts of interaction between objects. That’s one of the reasons why the interfaces only care about behaviors of 
-objects, and why you can’t declare a field in an interface.
-
-The fact that the word interface stands for a public part of an object, while there’s also the `interface` type in most programming 
-languages, is very confusing. I’m with you on that.
-
-Imagine that you have a `FlyingTransport` interface with a method `fly(origin, destination, passengers)` . When designing an air 
-transportation simulator, you could restrict the `Airport` class to work only with objects that implement the `FlyingTransport`  
-interface. After this, you can be sure that any object passed to an airport object, whether it’s an `Airplane` ,a `Helicopter` or a 
-freaking `DomesticatedGryphon` would be able to arrive or depart from this type of airport.
-
-![image7](7.png)
-
-_UML diagram of several classes implementing an interface._
-
-You could change the implementation of the `fly` method in these classes in any way you want. As long as the signature of the method 
-remains the same as declared in the interface, all instances of the `Airport` class can work with your flying objects just fine.
-
-### Inheritance
-
-_Inheritance_ is the ability to build new classes on top of existing ones. The main benefit of inheritance is code reuse. If you 
-want to create a class that’s slightly different from an existing one, there’s no need to duplicate code. Instead, you extend the 
-existing class and put the extra functionality into a resulting subclass, which inherits fields and methods of the superclass.
-
-The consequence of using inheritance is that subclasses have the same interface as their parent class. You can’t hide a method in a 
-subclass if it was declared in the superclass. You must also implement all abstract methods, even if they don’t make sense for your 
-subclass.
-
-![image8](8.png)
-
-_UML diagram of extending a single class versus implementing multiple interfaces at the same time._
-
-In most programming languages a subclass can extend only one superclass. On the other hand, any class can implement several 
-interfaces at the same time. But, as I mentioned before, if a superclass implements an interface, all of its subclasses must also 
-implement it.
-
-### Polymorphism
-
-Let’s look at some `animal` examples. Most Animals can make sounds. We can anticipate that all subclasses will need to override the  
-base `makeSound` method so each subclass can emit the correct sound; therefore we can declare it _abstract_ right away. This lets us 
-omit any default implementation of the method in the superclass, but force all subclasses to come up with their own.
-
-![image9](9.png)
-
-Imagine that we’ve put several cats and dogs into a large bag. Then, with closed eyes, we take the animals one-by-one out of the 
-bag. After taking an animal from the bag, we don’t know for sure what it is. However, if we cuddle it hard enough, the animal will 
-emit a specific sound of joy, depending on its concrete class.
-
-```c#
+``` c#
 1   bag = [new Cat(), new Dog()];
 2
 3   foreach (Animal a : bag)
 4     a.makeSound()
 5
 6   // Meow!
-7   // Woof!    
+7   // Woof!  
 ```
 
-The program doesn’t know the concrete type of the object contained inside the `a` variable; but, thanks to the special mechanism 
-called _polymorphism_, the program can trace down the subclass of the object whose method is being  executed and run the appropriate 
-behavior.
+برنامه هیچ ایده درمورد نوع واقعی شیء درون متغیر `a` ندارد; اما،  به خاطر مکانیزم ویژه ی *چندریختی*، برنامه میتواند  ساب‌کلاس شیء ای که متدش درحال فراخوانی شدن است را پیدا کند و رفتار مناسب را اجرا کند.
+*چندریختی* قابلیت یک برنامه در تشخیص کلاس واقعی یک شیء و صدا زدن پیاده سازی آن است حتی اگر نوع واقعی آن در شرایط فعلی مشخص نیست. 
+شما همچنین می توانید چندشکلی را به عنوان توانایی یک شی برای "تظاهر" به چیز دیگری در نظر بگیرید، معمولاً کلاسی که گسترش می دهد یا رابطی که پیاده سازی می کند. در مثال ما، سگ‌ها و گربه‌ها در کیسه وانمود می‌کردند که حیوانات عادی هستند.
+# روابط بین اشیاء
+علاوه بر *وراثت* و *پیاده‌سازی* که تا الان دیدیم، انواع دیگر روابط بین اشیاء وجود دارد که  هنوز درموردشان صحبت نکردیم.
+## وابستگی
 
-_Polymorphism_ is the ability of a program to detect the real class of an object and call its implementation even when its real type 
-is unknown in the current context.
+![image1](10.png)
 
-You can also think of polymorphism as the ability of an object to “pretend” to be something else, usually a class it extends or an 
-interface it implements. In our example, the dogs and cats in the bag were pretending to be generic animals.
+* وابستگی UML.  استاد به موارد درسی بستگی دارد.*
 
-## Relations Between Objects
+*وابستگی* ساده ترین و ضعیف ترین نوع وابستگی بین کلاس هاست. وابستگی ای بین دو کلاس وجود دارد اگر تغییرات در مفاهیم یک کلاس موجب تغییرات در کلاس دیگری شود. وابستگی بیشتر اوقات هنگامی رخ میدهد که از اسم های واقعی کلاس در کدتان استفاده میکنید. برای مثال،  هنگام تعیین انواع در امضاهای متد، هنگام نمونه سازی اشیا از طریق فراخوانی سازنده، و غیره. اگر کد خود را به جای کلاس های مشخص به رابط ها یا کلاس های انتزاعی وابسته کنید، می توانید وابستگی را ضعیف تر کنید.
+معمولا، نمودار UML تمامی وابستگی هارا نشان نمیدهد-تعدادشان در کد های واقعی خیلی زیاد است. به جای شلوغ کردن نمودار با وابستگی ها، باید بسیار گزینش گر باشید و فقط آن‌هایی را نشان دهید که برای هر چیزی که در حال برقراری ارتباط با آن هستند مهم هستند. 
+## ارتباط
 
-In addition to _inheritance_ and _implementation_ that we’ve already seen, there are other types of relations between objects that 
-we haven’t talked about yet.
+![image1](11.png)
 
-### Dependency
+ *ارتباط UML. پروفسور با دانش آموزان ارتباط برقرار میکند.*
 
-![image10](10.png)
-
-_UML Dependency. Professor depends on the course materials._
-
-_Dependency_ is the most basic and the weakest type of relations between classes. There is a dependency between two classes if some 
-changes to the definition of one class might result in modifications to another class. Dependency typically occurs when you use 
-concrete class names in your code. For example, when specifying types in method signatures, when instantiating objects via 
-constructor calls, etc. You can make a dependency weaker if you make your code dependent on interfaces or abstract classes instead 
-of concrete classes.
-
-Usually, a UML diagram doesn’t show every dependency—there are far too many of them in any real code. Instead of polluting the 
-diagram with dependencies, you should be very selective and show only those that are important to whatever it is you are 
-communicating.
-
-### Association
-
-![image11](11.png)
-
-_UML Association. Professor communicates with students._
-
-_Association_ is a relationship in which one object uses or interacts with another. In UML diagrams, the association relationship is 
-shown by a simple arrow 
-drawn from an object and pointing to the object it uses. By the way, having a bi-directional association is a completely normal 
-thing. In this case,the arrow has a point at each end. Association can be seen as a specialized kind of dependency, where an object 
-always has access to the objects with which it interacts, whereas simple dependency doesn’t establish a permanent link between 
-objects.
-
-In general, you use an association to represent something like a field in a class. The link is always there, in that you can always 
-ask an order for its customer. But it doesn’t always have to be a field. If you are modeling your classes from an interface 
-perspective, it can just indicate the presence of a method that will return the order’s customer.
-
-To solidify your understanding of the difference between association and dependency, let’s look at a combined example. Imagine that 
-we have a `Professor` class:
-
+ارتباط رابطه ای است که در آن یک شی از شی دیگر استفاده می کند یا با آن تعامل دارد. در نمودار های UML، رابطه ارتباط با یک فلش ساده از یک شی نشان داده می شود و به شی مورد استفاده آن اشاره می کند.  ضمناً داشتن یک ارتباط دو جهته یک امر کاملاً عادی است. در این حالت، فلش در هر انتها یک اشاره گر دارد. ارتباط میتواند به شکل نوع ویژه ای از وابستگی هم در نظر گرفته شود، جایی که یک شیء همیشه به اشیاء ای که با آنها تعامل دارد دسترسی دارد، در حالی که وابستگی ساده یک پیوند دائمی بین اشیا ایجاد نمی کند.
+به طور کلی، شما از ارتباط، برای نمایش چیزی مانند یک فیلد در یک کلاس استفاده می کنید. پیوند همیشه وجود دارد، به این شکل که همیشه می توانید برای مشتری آن سفارش بخواهید. اما لازم نیست که همیشه یک فیلد باشد. اگر درحال مدل سازی کلاس خود از دید یک رابط هستید، میتواند فقط میتواند حضور متدی را نشان دهد که مشتری سفارش را بر می گرداند.
+برای محکم تر کردن درکتان از تفاوت بین ارتباط و وابستگی، بیایید به مثال ترکیب شده ای نگاه کنیم. تصور کنید که کلاسی به اسم `Professor` داریم:
 ``` c#
 1   class Professor is
 2     field Student student
@@ -214,61 +122,34 @@ we have a `Professor` class:
 5       // ...
 6       this.student.remember(c.getKnowledge())
 ```
+به متد `teach` نگاهی بیندازید. آرگومانی از کلاس `Course` میگیرد، که بعدا در بدنه ی متد استفاده میشود. اگر کسی متد `getKnowledge` کلاس `Course` را تغییر دهد (اسمش را تغییر دهد، یا پارامتر های مورد نیاز به آن اضافه کند و غیره) کد ما درست کار نخواهد کرد. این یعنی وابستگی. حالا به فیلد `student` و اینکه چگونه در متد `teach` استفاده شده است نگاه بیندازید. میتوانیم با اطمینان بگوییم که کلاس `Student` نیز یک وابستگی برای `Professor` است: اگر متود `remember` ‍ تغییر کند، کد ‍`Professor` درست کار نخواهد کرد. اما، از آنجایی که فیلد `student` برای تمامی متد های `Professor` قابل دسترس است،  کلاس `Student` تنها یک وابستگی نیست، بلکه یک ارتباط هم هست.
+## تجمع
 
-Take a look at the `teach` method. It takes an argument of the `Course` class, which is then used in the body of the method. If 
-someone changes the `getKnowledge` method of the `Course` class (alters its name, or adds some required parameters, etc.) our code 
-will break. This is called a dependency.
+![image1](12.png)
 
-Now, look at the `student` field and how it’s used in the `teach` method. We can say for sure that the `Student` class is also a 
-dependency for the `Professor` : if the method `remember` changes, the `Professor` ’s code will break. However, 
-since the `student` field is always accessible to any method of the `Professor` , the ``Student`` class is not just a dependency, 
-but also an association.
+*تجمع UML. دپارتمان پروفسور را در اختیار دارد.*
 
-### Aggregation
+تجمع نوع خاصی از ارتباط است که رابطه های "one-to-many" ، ""many-to-many" یا "whole-part" را بین چندین شیء  نشان میدهد. 
+اغلب اوقات، تحت تجمع، یک شیء "دارای" یک مجموعه از بقیه ی اشیاء است و به شکل یک کالکشن یا نگه دارنده رفتار میکند. محتوا میتواند بدون نگه دارنده وجود داشته باشد و همچنین میتواند به چندین نگه دارنده در آن واحد مرتبط باشد. در UML رابطه ی تجمع با یک خط و یک الماس خالی در طرف نگه دارنده و یک نشان گر در طرف محتوا نشان داده میشود. 
+همانطور که درمورد ارتباط بین اشیاء صحبت میکنیم، به یاد داشته باشید که UML رابطه ی بین کلاس هارا نشان میدهد. این به این معنیست که یک شیء داشنگاه  ممکن است چندین دپارتمان داشته باشد در حالی که فقط یک بلاک برای هر چیز در نمودار میبینید.  نشان‌گذاری UML می‌تواند کمیت‌ها را در هر دو طرف روابط نشان دهد، اما اگر کمیت‌ها واضحا مشخص باشند، اشکالی ندارد که آنها را حذف کنید. 
 
-![image12](12.png)
+## ترکیب بندی
 
-_UML Aggregation. Department contains professors._
+![image1](13.png)
 
-_Aggregation_ is a specialized type of association that represents “one-to-many”, “many-to-many” or “whole-part” relations between 
-multiple objects.
+*ترکیب بندی UML. دانشگاه از چندین دپارتمان تشکیل شده است.*
 
-Usually, under aggregation, an object “has” a set of other objects and serves as a container or collection. The component can exist 
-without the container and can be linked to several containers at the same time. In UML the aggregation relationship is shown by a 
-line with an empty diamond at the container end and an arrow at the end pointing toward the component.
+ترکیب بندی نوع مشخصی از تجمع است، که در آن یک شیء از یک یا چند نمونه از دیگری تشکیل شده است. تفاوت این رابطه و بقیه این است که محتوا فقط میتواند به عنوان بخشی از نگه دارنده وجود داشته باشد. در UML رابطه ی ترکیب بندی به همان شکل رابطه ی تجمع است، اما با تفاوت یک الماس توپر در ابتدای فلش.
+توجه داشته باشید که بسیاری از مردم اغلب زمانی از اصطلاح "ترکیب" استفاده می کنند که واقعا منظورشان تجمع و ترکیب بندیست. بدنام ترین مثال برایش، اصل معروف "choose composition over inheritence" است. این به این دلیل نیست که مردم درمورد تفاوتشان ناآگاه هستند، بلکه به این دلیل است که کلمه ی "ترکیب" (برای مثال "ترکیب شیء") در زبان انگلیسی طبیعی تر به نظر میرسد. 
+## تصویر بزرگتر
+حالا که تمامی روابط بین اشیاء را میدانیم، بیایید ببینیم همه ی آنها چگونه به هم مرتبطند. امیدوارم این شمارا در سوالاتی مثل "تفاوت بین تجمع و ترکیب بندی چیست؟" و "آیا وراثت نوعی از وابستگیست؟" راهنمایی کند.
+* __وابستگی:__ کلاس A می تواند تحت تأثیر تغییرات کلاس B قرار گیرد.
+*  __ارتباط:__  شیء A درمورد شیء B میداند. کلاس A به  B وابسته است.
+*  __اجتماع:__ شیء A درمورد شیء B میداند، و شامل B میشود. کلاس A به  B وابسته است.
+*  __ترکیب بندی:__  شیء A درمورد شیء B میداند، شامل B میشود، و  چرخه زندگی B را کنترل میکند. کلاس A به  B وابسته است.
+*  __پیاده سازی:__ کلاس A متد های تعریف شده در رابط B را توصیف میکند. شیء های A میتوانند همانند B با آنها رفتار شود. کلاس A به B وابسته است.
+*  __وراثت:__ کلاس A رابط و پیاده سازی کلاس B را به ارث میبرد اما میتواند آن را گسترش دهد. اشیاء A میتوانند همانند B با آنها رفتار شود. کلاس A به B وابسته است.
 
-While we talk about relations between objects, keep in mind that UML represents relations between _classes_. It means that a 
-university object might consist of multiple departments even though you see just one “block” for each entity in the diagram. UML 
-notation can represent quantities on both sides of relationships, but it’s okay to omit them if the quantities are clear from the 
-context.
+![image1](14.png)
 
-### Composition
-
-![image13](13.png)
-
-_UML Composition. University consists of departments._
-
-_Composition_ is a specific kind of aggregation, where one object is composed of one or more instances of the other. The distinction 
-between this relation and others is that the component can only exist as a part of the container. In UML the composition 
-relationship is drawn the same as for aggregation, but with a filled diamond at the arrow’s base.
-
-Note that many people often use the term “composition” when they really mean both the aggregation and composition. The most 
-notorious example for this is the famous principle “choose composition over inheritance.” It’s not because people are ignorant about 
-the difference, but rather because the word “composition” (e.g. “object composition”) sounds more natural in the English language.
-
-### The big picture
-
-Now that we know all types of relations between objects let’s see how they all are connected. Hopefully, this will guide you through 
-questions like “what is the difference between aggregation and composition” or “is inheritance a type of dependency?”
-
-- __Dependency:__ Class А can be affected by changes in class B.
-- __Association:__ Object А knows about object B. Class A depends on B.
-- __Aggregation:__ Object А knows about object B, and consists of B. Class A depends on B.
-- __Composition:__ Object А knows about object B, consists of B, and manages B’s life cycle. Class A depends on B.
-- __Implementation:__ Class А defines methods declared in interface B. Objects A can be treated as B. Class A depends on B.
-- __Inheritance:__ Class А inherits interface and implementation of class B but can extend it. Objects A can be treated as B. Class 
-A depends on B.
-
-![image14](14.png)
-
-Relations between objects and classes: from weakest to strongest.
+*روابط بین اشیاء و کلاس ها: از ضعیف ترین به قوی ترین.*
