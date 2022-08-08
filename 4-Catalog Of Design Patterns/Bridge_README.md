@@ -32,7 +32,7 @@
 **انتزاع و پیاده‌سازی**
 
 
-The GoF book[^1] introduces the terms Abstraction and Implementation as part of the Bridge definition. In my opinion, the terms sound too academic and make the pattern seem more complicated than it really is. Having read the simple example with shapes and colors, let’s decipher the meaning behind the GoF book’s scary words.
+کتاب GoF[^1] کلمات انتزاع (Abstraction) و پیاده‌سازی (Implementation) را به عنوان بخشی از تعریف الگوی پل معرفی می‌کند. به نظر من، این کلمات زیاد از حد آکادمیک هستند و باعث می‌شوند این الگو پیچیده‌تر از چیزی که هست به نظر برسد. حالا که مثال ساده‌ی شکل‌ها و رنگ‌ها را خوانده‌ایم، اجازه دهید معنای پشت کلمات ترسناک کتاب GoF را بفهمیم.
 
 انتزاع (رابط یا interface هم گفته می‌شود) یک لایه‌ی کنترل سطح بالا برای برخی موجودیت‌ها است. این لایه قرار نیست خودش هیچ کار واقعی انجام دهد. تنها باید کار را به لایه‌ی پیاده‌سازی (پلتفرم هم گفته می‌شود) تفویض کند.
 
@@ -73,15 +73,11 @@ The GoF book[^1] introduces the terms Abstraction and Implementation as part of 
 ![structure-en-indexed](./images/diagrams/bridge/structure-en-indexed.png)
 
 1. **بخش انتزاع** منطق سطح بالا را فراهم می‌کند و به شیء پیاده‌سازی برای انجام کار اصلی متکی است.
-
-2. The **Implementation** declares the interface that’s common for all concrete implementations. An abstraction can only communicate with an implementation object via methods that are declared here.
-The abstraction may list the same methods as the implementation, but usually the abstraction declares some complex behaviors that rely on a wide variety of primitive operations declared by the implementation.
-
-3. Concrete Implementations contain platform-specific code.
-
+2. **پیاده‌سازی** اینترفیسی را تعریف می‌کند که برای تمام اشیاء واقعی پیاده‌سازی مشترک است. بخش انتزاع صرفاً با مِتدهایی که اینجا تعریف شده‌اند می‌تواند با شیءِ پیاده‌سازی رابطه برقرار کند.
+  انتزاع ممکن است همان متُدهای پیاده‌سازی را لیست کند ولی معمولاً انتزاع رفتارهای پیچیده‌ای را بر پایه‌ی چندین عملیات پایه که در پیاده‌سازی وجود دارند، تعریف می‌کند.
+3. پیاده‌سازی‌های واقعی کدهای مختص به هر پلتفرم را در بر دارد.
 4. **انتزاع تصحیح** شده انواعی از منطق کنترل را فراهم می‌کند و مانند والدش، با پیاده‌سازی‌های متفاوتی به وسیله‌ی اینترفیسِ عمومیِ پیاده‌سازی کار می‌کند.
-
-5. Usually, the **Client** is only interested in working with the abstraction. However, it’s the client’s job to link the abstraction object with one of the implementation objects.
+5. معمولاً کلاینت دوست دارد تنها با انتزاع کار کند. ولی وظیفه‌ی کلاینت است که شیء انتزاع را به یکی از اشیاء پیاده‌سازی وصل کند.
 
 ### :hash: شبه‌کد
 
@@ -95,7 +91,7 @@ The abstraction may list the same methods as the implementation, but usually the
 
 می‌توان کلاس‌های ریموت را مستقل از کلاس‌های دستگاه‌ها توسعه داد. تمام چیزی که نیاز است، ساختن یک زیرکلاس جدیدِ ریموت است. برای نمونه، یک ریموت ابتدایی می‌تواند دو دکمه داشته باشد، اما می‌تواند با امکانات جدید، مثل باتری اضافه یا صفحه‌ی لمسی توسعه پیدا کند.
 
-The client code links the desired type of remote control with a specific device object via the remote’s constructor.
+کدِ کلاینتْ ریموتِ دلخواه را با استفاده از سازنده‌ی (constructor) ریموت به شیء یک دستگاه خاص وصل می‌کند.
 
 ```c++
 // The "abstraction" defines the interface for the "control"
@@ -166,7 +162,7 @@ remote = new AdvancedRemoteControl(radio)
 
 :beetle: **از الگوی پل زمانی استفاده کنید که می‌خواهید یک کلاس یکپارچه که انواع مختلفی از چند کارکرد دارد (برای مثال، کلاس می‌تواند با انواع سرورهای پایگاه داده کار کند) را تقسیم و ساماندهی کنید.**
 
-:sparkles: The bigger a class becomes, the harder it is to figure out how it works, and the longer it takes to make a change. The changes made to one of the variations of functionality may require making changes across the whole class, which often results in making errors or not addressing some critical side effects.
+:sparkles: هر چه کلاس بزرگ‌تر باشد، سخت‌تر می‌توان فهمید چگونه کار می‌کند و ایجاد تغییر بیش‌تر طول می‌کشد. تغییر یکی از انواع کارکردها ممکن است نیازمند تغییر کل کلاس باشد که معمولاً باعث ایجاد خطا و نادیده گرفتن اثرات جانبی مهم می‌شود.
 
 الگوی پل به شما اجازه می‌دهد کلاس یکپارچه را به چند سلسله کلاس تقسیم کنید. بعد از این می‌توانید کلاس‌های هر سلسله را مستقل از کلاس‌های دیگر تغییر دهید. این رویکرد نگهداری کد را ساده و ریسک خراب کردن کد را کمینه می‌کند.
 
@@ -176,7 +172,7 @@ remote = new AdvancedRemoteControl(radio)
 
 :beetle: **از الگوی پل استفاده کنید اگر باید بتوانید در زمان اجرای برنامه از پیاده‌سازی‌های مختلف استفاده کنید.**
 
-:sparkles: Although it’s optional, the Bridge pattern lets you replace the implementation object inside the abstraction. It’s as easy as assigning a new value to a field.
+:sparkles: با وجود اینکه این اختیاری است، الگوی پل اجازه می‌دهد شیءِ پیاده‌سازی را در انتزاع جایگزین کنید. این کار به سادگی مقدار دهی جدید به یک فیلد است.
 
 این آیتم آخر دلیل اصلی این است که بسیاری از مردم الگوی پل را با الگوی استراتژی اشتباه می‌گیرند. به یاد داشته باشید که یک الگو چیزی بیش‌تر از روش خاصی برای ساختار دادن به کلاس‌های شما است. یک الگو می‌تواند نیات و مشکلات را هم ابراز کند.
 
@@ -190,32 +186,34 @@ remote = new AdvancedRemoteControl(radio)
    2. دامنه / زیرساخت
    3. فرانت‌اِند / بک‌اِند
    4. اینترفیس / پیاده‌سازی
-2. See what operations the client needs and define them in the base abstraction class.
+2. ببینید کلاینت چه عملیات‌هایی را نیاز دارد و آن‌ها را در کلاس پایه‌ی انتزاع تعریف کنید.
 3. بررسی کنید عملیات‌ها روی تمام پلتفرم‌ها در دسترس هستند. عملیات‌هایی که بخش انتزاع در اینترفیس عمومی نیاز دارد را در تعریف کنید.
-4. For all platforms in your domain create concrete implementation classes, but make sure they all follow the implementation interface.
+4. برای تمام پلتفرم‌ها در دامنه‌تان کلاس‌های عینی پیاده‌سازی بسازید ولی مطمئن شوید که همه‌شان از اینترفیس پیاده‌سازی پیروی می‌کنند.
 5. درون کلاس انتزاع یک فیلد ارجاع برای نوع پیاده‌سازی اضافه کنید. انتزاع بیش‌تر کارها را به شیءِ پیاده‌سازی که در این فیلد ارجاع شده تفویض می‌کند.
-6. If you have several variants of high-level logic, create refined abstractions for each variant by extending the base abstraction class.
-7. The client code should pass an implementation object to the abstraction’s constructor to associate one with the other. After that, the client can forget about the implementation and work only with the abstraction object.
+6. اگر چند گونه‌ی مختلف از منطق سطح بالا دارید، برای هر گونه با گسترش کلاس پایه‌ی انتزاع، انتزاع‌های اصلاح شده بسازید.
+7. کد کلاینت باید یک شیءِ پیاده‌سازی را به سازنده‌ی شیءِ انتزاع بدهد تا با هم مرتبط شوند. بعد از این، کلاینت می‌تواند پیاده‌سازی را فراموش کند و فقط با انتزاع کار کند.
 
 ### ⚖️ معایب و مزایا
 
 :heavy_check_mark: توانایی ساخت برنامه‌ها و کلاس‌های مستقل از پلتفرم
 
-:heavy_check_mark: The client code works with high-level abstractions. It isn’t exposed to the platform details.
+:heavy_check_mark: کد کلاینت با انتزاع‌های سطح بالا کار می‌کند و با جزئیات پلتفرم کاری ندارد.
 
-:heavy_check_mark: Open/Closed Principle. You can introduce new abstractions and implementations independently from each other.
+:heavy_check_mark: اصل باز/بسته (Open/Close Principle). توانایی معرفی انتزاع‌ها و پیاده‌سازی‌های جدید مستقل از همدیگر.
 
-:heavy_check_mark: Single Responsibility Principle. You can focus on high-level logic in the abstraction and on platform details in the implementation.
+:heavy_check_mark: اصل تک مسئولیتی (Single Responsibility Principle). توانایی تمرکز بر منطق سطح بالا در بخش انتزاع و تمرکز بر جزئیات در بخش پیاده‌سازی.
 
 :heavy_multiplication_x: ممکن است با انجام این الگو روی یک کلاس چسبنده (cohesive) کد پیچیده‌تر شود.
 
 
 ### :arrows_counterclockwise: Relations with Other Patterns
 
-- **Bridge** is usually designed up-front, letting you develop parts of an application independently of each other. On the other hand, **Adapter** is commonly used with an existing app to make some otherwise-incompatible classes work together nicely.
+- <u>**پل**</u> معمولاً از قبل طراحی شده و به شما اجازه می‌دهد بخش‌هایی از یک برنامه را مستقل از بخش‌های دیگر توسعه دهید. در طرف دیگر، **ادپتر** معمولاً برای برنامه‌ای که از قبل وجود داشته استفاده می‌شود تا کلاس‌هایی که ناسازگار بودند را وادار کند به شکل مناسبی با هم کار کنند.
 
-- **Bridge**, **State**, **Strategy** (and to some degree **Adapter**) have very similar structures. Indeed, all of these patterns are based on composition, which is delegating work to other objects. However, they all solve different problems. A pattern isn’t just a recipe for structuring your code in a specific way. It can also communicate to other developers the problem the pattern solves.
+- **پل**، **وضعیت**، **استراتژی** (و تا حدودی **ادپتر**) ساختار مشابهی دارند. فی‌الواقع، همه‌ی این الگوها بر پایه‌ی کامپوزیشن ؟؟؟ هستند که کار را به شیء دیگری تفویض می‌کند. ولی هر کدام مشکل متفاوتی را حل می‌کنند. یک الگو فقط دستورالعملی برای ساختار بخشی به کد به روشی خاص نیست. الگو همچنین مشکلی که آن الگو حل کرده را به توسعه‌دهندگان دیگر می‌گوید.
 
-- You can use **Abstract Factory** along with **Bridge**. This pairing is useful when some abstractions defined by Bridge can only work with specific implementations. In this case, Abstract Factory can encapsulate these relations and hide the complexity from the client code.
+- می‌توان از **کارخانه‌ی انتزاعی** همراه با **پل** استفاده کرد. این همراهی زمانی مفید است که چند انتزاع که در الگوی پل تعریف شده می‌توانند تنها با چند پیاده‌سازی مشخص کار کنند. در این صورت، کارخانه‌ی انتزاعی می‌تواند این روابط را کپسوله کند و این پیچیدگی‌ها را از کلاینت مخفی کند.
 
-- You can combine **Builder** with **Bridge**: the director class plays the role of the abstraction, while different builders act as implementations.
+- می‌توان **سازنده** را با **پل** ترکیب کرد: کلاس گرداننده نقش انتزاع و سازندگان مختلف نقش پیاده‌سازی را بازی می‌کنند.
+
+[^1]: “Gang of Four” لقبِ داده شده است به چهار مؤلف کتاب اصلی درباره‌ی الگوهای طراحی: Design Patterns: Elements of Reusable Object-Oriented Software https://refactoring.guru/gof-book.
