@@ -1,100 +1,99 @@
 ![bridge](./images/content/bridge/bridge.png)
 
-## Bridge
+## پُل
 
-**Bridge** is a structural design pattern that lets you split a large class or a set of closely related classes into two separate hierarchies—abstraction and implementation—which can be developed independently of each other.
+**پُل** یک الگوی طراحی ساختاریست که اجازه می‌دهد یک کلاس بزرگ یا مجموعه‌ای از کلاس‌های درهم تنیده به دو سلسله مراتب جدا تقسیم شوند - بخش انتزاع و پیاده‌سازی - که می‌توانند جداگانه توسعه داده شوند.
 
-### :worried: Problem
+### :worried: مشکل
 
-Abstraction? Implementation? Sound scary? Stay calm and let’s consider a simple example.
+انتزاع؟ پیاده‌سازی؟ ترسناک به نظر می‌رسد؟ آرام باشید و اجازه دهید یک مثال ساده ببینیم.
 
-Say you have a geometric `Shape` class with a pair of subclasses: `Circle` and `Square`. You want to extend this class hierarchy to incorporate colors, so you plan to create `Red` and `Blue` shape subclasses. However, since you already have two subclasses, you’ll need to create four class combinations such as `BlueCircle` and `RedSquare`.
+فرض کنید یک کلاس به نام `shape` (شکل هندسی) به همراه دو زیرکلاس به نام‌های `Circle` (دایره) و `Square` (مربع) دارید. حالا می‌خواهید این کلاس را توسعه دهید تا با رنگ هم کار کند. پس می‌خواهید زیرکلاس‌های `Red` (قرمز) و `Blue` (آبی) را هم ایجاد کنید. ولی، از آنجا که قبلاً دو زیرکلاس داشتید، حالا باید چهار ترکیب از زیرکلاس‌ها بسازید مانند `BlueCircle` و `RedSquare`.
 
 ![problem-en](./images/diagrams/bridge/problem-en.png)
 
-Number of class combinations grows in geometric progression.
+تعداد ترکیب‌های کلاس به شکل هندسی رشد می‌کند.
 
-Adding new shape types and colors to the hierarchy will grow it exponentially. For example, to add a triangle shape you’d need to introduce two subclasses, one for each color. And after that, adding a new color would require creating three subclasses, one for each shape type. The further we go, the worse it becomes.
+اضافه کردن شکل‌ها و رنگ‌های جدید، سلسله را به شکل نمایی بزرگ می‌کند. برای مثال، برای اضافه کردن شکل مثلث نیاز دارید که دو زیرکلاس ایجاد کنید، یک زیرکلاس برای هر رنگ. و بعد از آن، اضافه کردن یک رنگ جدید، نیاز به ساختن سه زیرکلاس خواهد داشت، یک زیرکلاس برای هر شکل. هر چه بیش‌تر جلو بروید، اوضاع بدتر می‌شود.
 
-### :smiley: Solution
+### :smiley: راه‌حل
 
 
-This problem occurs because we’re trying to extend the shape classes in two independent dimensions: by form and by color. That’s a very common issue with class inheritance.
+این مشکل به این دلیل رخ می‌دهد که سعی می‌کنیم کلاس `shape` را در دو بُعد مستقل توسعه دهیم: بُعد شکل و رنگ. این یک مشکل بسیار رایج در ارث‌بری کلاس است.
 
-The Bridge pattern attempts to solve this problem by switching from inheritance to the object composition. What this means is that you extract one of the dimensions into a separate class hierarchy, so that the original classes will reference an object of the new hierarchy, instead of having all of its state and behaviors within one class.
+الگوی پل سعی می‌کند این مشکل را با رها کردن ارث‌بری و استفاده از ترکیب اشیاء حل کند. این یعنی شما یکی از ابعاد را به یک سلسله‌ی جدا منتقل می‌کنید. حالا کلاس‌های اصلی، به یک شیء از سلسله‌ی جدید ارجاع می‌دهند به جای اینکه کل وضعیت و رفتارها را خودشان نگه دارند.
 
 ![solution-en](./images/diagrams/bridge/solution-en.png)
 
-You can prevent the explosion of a class hierarchy by transforming it into several related hierarchies.
+برای جلوگیری از انفجار سلسله‌ی کلاس می‌توان این سلسله را به چند سلسله‌ی مرتبط تبدیل کرد.
 
-Following this approach, we can extract the color-related code into its own class with two subclasses: `Red` and `Blue`. The `Shape` class then gets a reference field pointing to one of the color objects. Now the shape can delegate any color-related work to the linked color object. That reference will act as a bridge between the `Shape` and `Color` classes. From now on, adding new colors won’t require changing the shape hierarchy, and vice versa.
+با دنبال کردن این راهبرد، می‌توان کُد مرتبط به رنگ را در کلاس خودش با دو زیرکلاسِ `Red` و `Blue` ذخیره کرد. به کلاس `Shape` یک فیلد ارجاع اضافه می‌شود که به یکی از اشیاء رنگ اشاره می‌کند. حالا کلاسِ شکل می‌تواند هر کار مربوط به رنگ را به شیءِ رنگِ مرتبط تفویض کند. این ارجاع مانند یک پل بین کلاس‌های `Shape` و `Color` عمل می‌کند. از حالا به بعد، اضافه کردن رنگ جدید، سلسله‌ی شکل را تغییر نمی‌دهد و اضافه کردن شکل جدید، سلسله‌ی رنگ را.
 
-
-**Abstraction and Implementation**
+**انتزاع و پیاده‌سازی**
 
 
 The GoF book[^1] introduces the terms Abstraction and Implementation as part of the Bridge definition. In my opinion, the terms sound too academic and make the pattern seem more complicated than it really is. Having read the simple example with shapes and colors, let’s decipher the meaning behind the GoF book’s scary words.
 
-Abstraction (also called interface) is a high-level control layer for some entity. This layer isn’t supposed to do any real work on its own. It should delegate the work to the implementation layer (also called platform).
+انتزاع (رابط یا interface هم گفته می‌شود) یک لایه‌ی کنترل سطح بالا برای برخی موجودیت‌ها است. این لایه قرار نیست خودش هیچ کار واقعی انجام دهد. تنها باید کار را به لایه‌ی پیاده‌سازی (پلتفرم هم گفته می‌شود) تفویض کند.
 
-Note that we’re not talking about interfaces or abstract classes from your programming language. These aren’t the same things.
+توجه کنید که درباره‌ی اینترفیس یا کلاس‌های انتزاعی زبان برنامه‌نویسی حرف نمی‌زنیم. این‌ها یکی نیستند.
 
-When talking about real applications, the abstraction can be represented by a graphical user interface (GUI), and the implementation could be the underlying operating system code (API) which the GUI layer calls in response to user interactions.
+داریم درباره‌ی برنامه‌های واقعی حرف می‌زنیم، لایه‌ی انتزاع می‌تواند توسط رابط کاربری گرافیکی (GUI) ارائه شود و لایه‌ی پیاده‌سازی می‌تواند کد سیستم عاملی باشد که GUI در پاسخ به کنش کاربر صدا می‌زند (API).
 
-Generally speaking, you can extend such an app in two independent directions:
+به شکل کلی، می‌توان چنین برنامه‌ای را در دو جهت مستقل گسترش داد:
 
-- Have several different GUIs (for instance, tailored for regular customers or admins).
+- داشتن چند GUI متفاوت (برای مثال، GUIهای متفاوت برای مشتریان عادی و سرپرستان).
 
-- Support several different APIs (for example, to be able to launch the app under Windows, Linux, and macOS).
+- پشتیبانی از APIهای مختلف (برای مثال، توانای اجرا روی ویندوز، لینوکس، و مک)
 
-In a worst-case scenario, this app might look like a giant spaghetti bowl, where hundreds of conditionals connect different types of GUI with various APIs all over the code.
+در حالت بدبینانه، این برنامه ممکن است مثل یک ظرف بزرگ ماکارونی به نظر برسد، جایی که صدها شرطْ انواع مختلف GUI را به انواع API وصل می‌کند.
 
 ![bridge-3-en](./images/content/bridge/bridge-3-en.png)
 
-Making even a simple change to a monolithic codebase is pretty hard because you must understand the entire thing very well. Making changes to smaller, well-defined modules is much easier.
+ایجاد یک تغییر ساده در یک کد یکپارچه بسیار سخت است. چون باید کل برنامه را خیلی خوب فهمیده باشید. تغییر دادن ماژول‌های کوچک‌تر و قابل فهم‌تر بسیار ساده‌تر است.
 
-You can bring order to this chaos by extracting the code related to specific interface-platform combinations into separate classes. However, soon you’ll discover that there are lots of these classes. The class hierarchy will grow exponentially because adding a new GUI or supporting a different API would require creating more and more classes.
+شما می‌توانید این آشوب را با انتقال کد ترکیب‌های اینترفیس و پلتفرم به کلاس‌های جداگانه منظم کنید. ولی، به زودی خواهید دید که تعداد زیادی از این کلاس‌ها به وجود آمده‌اند. سلسله‌ی کلاس‌ها به صورت نمایی رشد می‌کند چون اضافه کردن یک GUI جدید یا پشتیبانی یک API متفاوت نیاز به ساخت کلاس‌های بیش‌تر و بیش‌تر دارد.
 
-Let’s try to solve this issue with the Bridge pattern. It suggests that we divide the classes into two hierarchies:
+اجازه دهید این مشکل را با الگوی پل حل کنیم. این الگو پیشنهاد می‌دهد کلاس‌ها را به دو سلسله‌ی مجزا تقسیم کنیم:
 
-- Abstraction: the GUI layer of the app.
+- انتزاع: لایه‌ی GUI برنامه
 
-- Implementation: the operating systems’ APIs.
+- پیاده‌سازی: API سیستم‌عامل
 
 ![bridge-2-en](./images/content/bridge/bridge-2-en.png)
 
-One of the ways to structure a cross-platform application.
+یکی از راه‌های ساختار بخشی به برنامه‌ی چند پلتفرمی
 
-The abstraction object controls the appearance of the app, delegating the actual work to the linked implementation object. Different implementations are interchangeable as long as they follow a common interface, enabling the same GUI to work under Windows and Linux.
+شیء انتزاع ظاهر برنامه را کنترل می‌کند و کار اصلی را به شیءِ پیاده‌سازی متصل تفویض می‌کند. پیاده‌سازی‌های مختلف قابل جایگزینی هستند، تا زمانی که از یک اینترفیس یکسان استفاده می‌کنند. به این شکل، یک GUI می‌تواند روی ویندوز و لینوکس کار کند.
 
-As a result, you can change the GUI classes without touching the API-related classes. Moreover, adding support for another operating system only requires creating a subclass in the implementation hierarchy.
+طبیعتاً، می‌توان کلاس‌های GUI را بدون تغییر کلاس‌های مربوط به API عوض کرد. حتی بهتر، اضافه کردن پشتیبانی برای یک سیستم‌عاملِ دیگر تنها نیاز به ایجاد یک زیرکلاس در بخش پیاده‌سازی دارد.
 
-### :construction: Structure
+### :construction: ساختار
 
 ![structure-en-indexed](./images/diagrams/bridge/structure-en-indexed.png)
 
-1. The **Abstraction** provides high-level control logic. It relies on the implementation object to do the actual low-level work.
+1. **بخش انتزاع** منطق سطح بالا را فراهم می‌کند و به شیء پیاده‌سازی برای انجام کار اصلی متکی است.
 
 2. The **Implementation** declares the interface that’s common for all concrete implementations. An abstraction can only communicate with an implementation object via methods that are declared here.
 The abstraction may list the same methods as the implementation, but usually the abstraction declares some complex behaviors that rely on a wide variety of primitive operations declared by the implementation.
 
 3. Concrete Implementations contain platform-specific code.
 
-4. **Refined Abstractions** provide variants of control logic. Like their parent, they work with different implementations via the general implementation interface.
+4. **انتزاع تصحیح** شده انواعی از منطق کنترل را فراهم می‌کند و مانند والدش، با پیاده‌سازی‌های متفاوتی به وسیله‌ی اینترفیسِ عمومیِ پیاده‌سازی کار می‌کند.
 
 5. Usually, the **Client** is only interested in working with the abstraction. However, it’s the client’s job to link the abstraction object with one of the implementation objects.
 
-### :hash: Pseudocode
+### :hash: شبه‌کد
 
-This example illustrates how the **Bridge** pattern can help divide the monolithic code of an app that manages devices and their remote controls. The `Device` classes act as the implementation, whereas the `Remotes` act as the abstraction.
+این مثال نشان می‌دهد که چگونه **الگوی پل** به جدا کردن کدِ یکپارچه‌ی یک برنامه که چند دستگاه و کنترل از راه دورشان (remote control) را کنترل می‌کند، کمک می‌کند. کلاس‌های `Device` به عنوان پیاده‌سازی عمل می‌کنند و کلاس‌های `Remote` نقش انتزاع را بازی می‌کنند.
 
-The base remote control class declares a reference field that links it with a device object. All remotes work with the devices via the general device interface, which lets the same remote support multiple device types.
+کلاس پایه‌ی ریموت دور یک فیلد ارجاع تعریف می‌کند که کلاس را به شیءِ دستگاه وصل می‌کند. همه‌ی ریموت‌ها به وسیله‌ی اینترفیس عمومی دستگاهْ با دستگاه‌ها رابطه برقرار می‌کنند. این موضوع به ریموت اجازه می‌دهد با چند نوع دستگاه کار کند.
 
 ![example-en](./images/diagrams/bridge/example-en.png)
 
-The original class hierarchy is divided into two parts: devices and remote controls.
+سلسله‌ی اصلی کلاس‌ها به دو بخش تقسیم شده: دستگاه‌ها و کنترل از راه دورها
 
-You can develop the remote control classes independently from the device classes. All that’s needed is to create a new remote subclass. For example, a basic remote control might only have two buttons, but you could extend it with additional features, such as an extra battery or a touchscreen.
+می‌توان کلاس‌های ریموت را مستقل از کلاس‌های دستگاه‌ها توسعه داد. تمام چیزی که نیاز است، ساختن یک زیرکلاس جدیدِ ریموت است. برای نمونه، یک ریموت ابتدایی می‌تواند دو دکمه داشته باشد، اما می‌تواند با امکانات جدید، مثل باتری اضافه یا صفحه‌ی لمسی توسعه پیدا کند.
 
 The client code links the desired type of remote control with a specific device object via the remote’s constructor.
 
@@ -163,46 +162,44 @@ remote = new AdvancedRemoteControl(radio)
 
 ```
 
-### :bulb: Applicability
+### :bulb: قابلیت اجرا
 
-:beetle: **Use the Bridge pattern when you want to divide and organize a monolithic class that has several variants of some functionality (for example, if the class can work with various database servers).**
+:beetle: **از الگوی پل زمانی استفاده کنید که می‌خواهید یک کلاس یکپارچه که انواع مختلفی از چند کارکرد دارد (برای مثال، کلاس می‌تواند با انواع سرورهای پایگاه داده کار کند) را تقسیم و ساماندهی کنید.**
 
 :sparkles: The bigger a class becomes, the harder it is to figure out how it works, and the longer it takes to make a change. The changes made to one of the variations of functionality may require making changes across the whole class, which often results in making errors or not addressing some critical side effects.
 
-The Bridge pattern lets you split the monolithic class into several class hierarchies. After this, you can change the classes in each hierarchy independently of the classes in the others. This approach simplifies code maintenance and minimizes the risk of breaking existing code.
+الگوی پل به شما اجازه می‌دهد کلاس یکپارچه را به چند سلسله کلاس تقسیم کنید. بعد از این می‌توانید کلاس‌های هر سلسله را مستقل از کلاس‌های دیگر تغییر دهید. این رویکرد نگهداری کد را ساده و ریسک خراب کردن کد را کمینه می‌کند.
 
-:beetle: **Use the pattern when you need to extend a class in several orthogonal (independent) dimensions.**
+:beetle: **از این الگو زمانی استفاده کنید که نیاز دارید یک کلاس را در چند جهتِ مستقل گسترش دهید.**
 
-:sparkles: The Bridge suggests that you extract a separate class hierarchy for each of the dimensions. The original class delegates the related work to the objects belonging to those hierarchies instead of doing everything on its own.
+:sparkles: الگوی پل پیشنهاد می‌کند که برای هر بُعد، یک سلسله کلاس جدا داشته باشید. کلاس اصلی کارِ مرتبط را به اشیاءِ آن سلسله‌ها تفویض می‌کند به جای اینکه خودش همه‌ی کارها را انجام دهد.
 
-:beetle: **Use the Bridge if you need to be able to switch implementations at runtime.**
+:beetle: **از الگوی پل استفاده کنید اگر باید بتوانید در زمان اجرای برنامه از پیاده‌سازی‌های مختلف استفاده کنید.**
 
 :sparkles: Although it’s optional, the Bridge pattern lets you replace the implementation object inside the abstraction. It’s as easy as assigning a new value to a field.
 
-By the way, this last item is the main reason why so many people confuse the Bridge with the **Strategy** pattern. Remember that a pattern is more than just a certain way to structure your classes. It may also communicate intent and a problem being addressed.
+این آیتم آخر دلیل اصلی این است که بسیاری از مردم الگوی پل را با الگوی استراتژی اشتباه می‌گیرند. به یاد داشته باشید که یک الگو چیزی بیش‌تر از روش خاصی برای ساختار دادن به کلاس‌های شما است. یک الگو می‌تواند نیات و مشکلات را هم ابراز کند.
 
 
 
 
-### :clipboard: How to Implement
+### :clipboard: چگونگی اجرا
 
-1. Identify the orthogonal dimensions in your classes. These independent concepts could be: abstraction/platform, domain/infrastructure, front-end/back-end, or interface/implementation.
-
+1. ابعاد مستقل در کلاس‌ها را شناسایی کنید. این مفاهیم مستقل می‌توانند این‌ها باشند:
+   1. انتزاع / بستر
+   2. دامنه / زیرساخت
+   3. فرانت‌اِند / بک‌اِند
+   4. اینترفیس / پیاده‌سازی
 2. See what operations the client needs and define them in the base abstraction class.
-
-3. Determine the operations available on all platforms. Declare the ones that the abstraction needs in the general implementation interface.
-
+3. بررسی کنید عملیات‌ها روی تمام پلتفرم‌ها در دسترس هستند. عملیات‌هایی که بخش انتزاع در اینترفیس عمومی نیاز دارد را در تعریف کنید.
 4. For all platforms in your domain create concrete implementation classes, but make sure they all follow the implementation interface.
-
-5. Inside the abstraction class, add a reference field for the implementation type. The abstraction delegates most of the work to the implementation object that’s referenced in that field.
-
+5. درون کلاس انتزاع یک فیلد ارجاع برای نوع پیاده‌سازی اضافه کنید. انتزاع بیش‌تر کارها را به شیءِ پیاده‌سازی که در این فیلد ارجاع شده تفویض می‌کند.
 6. If you have several variants of high-level logic, create refined abstractions for each variant by extending the base abstraction class.
-
 7. The client code should pass an implementation object to the abstraction’s constructor to associate one with the other. After that, the client can forget about the implementation and work only with the abstraction object.
 
-### ⚖️ Pros and Cons
+### ⚖️ معایب و مزایا
 
-:heavy_check_mark: You can create platform-independent classes and apps.
+:heavy_check_mark: توانایی ساخت برنامه‌ها و کلاس‌های مستقل از پلتفرم
 
 :heavy_check_mark: The client code works with high-level abstractions. It isn’t exposed to the platform details.
 
@@ -210,7 +207,7 @@ By the way, this last item is the main reason why so many people confuse the Bri
 
 :heavy_check_mark: Single Responsibility Principle. You can focus on high-level logic in the abstraction and on platform details in the implementation.
 
-:heavy_multiplication_x: You might make the code more complicated by applying the pattern to a highly cohesive class.
+:heavy_multiplication_x: ممکن است با انجام این الگو روی یک کلاس چسبنده (cohesive) کد پیچیده‌تر شود.
 
 
 ### :arrows_counterclockwise: Relations with Other Patterns
