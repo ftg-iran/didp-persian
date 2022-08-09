@@ -96,9 +96,9 @@
 |-|رزرو نشده| Memento |
 |-|رزرو نشده| Observer |
 |-|رزرو نشده| State |
-|-|رزرو نشده| Strategy |
-|-|رزرو نشده| Template method |
-|-|رزرو نشده| Visitor & Conclusion|
+| <span dir="rtl"> 15 شهریور </span> | Khalil Farashiani | Strategy |
+| <span dir="rtl"> 15 شهریور </span> | Khalil Farashiani | Template method |
+| <span dir="rtl"> 15 شهریور </span> | Khalil Farashiani | Visitor & Conclusion|
 
 
 
