@@ -83,7 +83,7 @@
 |-|رزرو نشده| Prototype |
 |-|رزرو نشده| Singleton |
 |-|رزرو نشده| Adapter |
-| <span dir="rtl"> 20 مرداد </span> | Amirhosein Rahmati | Bridge |
+| <span dir="rtl"> اتمام ترجمه </span> | Amirhosein Rahmati | Bridge |
 | <span dir="rtl"> 7 شهریور </span> | mehrdadbn9 | Composite |
 | <span dir="rtl"> 15 شهریور </span> | MohammadMahdi Akhondi | Decorator |
 |-|رزرو نشده| Facade |
