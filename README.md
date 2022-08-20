@@ -81,7 +81,7 @@
 |-|رزرو نشده| Abstract factoy |
 |-|رزرو نشده| Builder |
 |-|رزرو نشده| Prototype |
-|-|رزرو نشده| Singleton |
+| <span dir="rtl"> 17 شهریور </span> | amirhosein kia darbandsary | Singleton |
 |-|رزرو نشده| Adapter |
 | <span dir="rtl"> اتمام ترجمه </span> | Amirhosein Rahmati | Bridge |
 | <span dir="rtl"> 7 شهریور </span> | mehrdadbn9 | Composite |
