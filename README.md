@@ -75,7 +75,7 @@
 |-|رزرو نشده| Software design principle |
 |-|رزرو نشده| Design principle |
 | <span dir="rtl"> 15 شهریور </span> | MohammadMahdi Akhondi | SOLID principle |
-| <span dir="rtl"> 20 شهریور </span> | Komeil Parseh | Factory method |
+| <span dir="rtl"> اتمام ترجمه </span> | Komeil Parseh | Factory method |
 |-|رزرو نشده| Abstract factoy |
 |-|رزرو نشده| Builder |
 |-|رزرو نشده| Prototype |
