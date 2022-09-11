@@ -74,16 +74,16 @@
 | <span dir="rtl"> 15 شهریور </span> | MohammadAmir Lotfi poor | Introduction to design patterns |
 |-|رزرو نشده| Software design principle |
 |-|رزرو نشده| Design principle |
-| <span dir="rtl"> 15 شهریور </span> | MohammadMahdi Akhondi | SOLID principle |
+| <span dir="rtl"> 25 شهریور </span> | MohammadMahdi Akhondi | SOLID principle |
 | <span dir="rtl"> اتمام ترجمه </span> | Komeil Parseh | Factory method |
 |-|رزرو نشده| Abstract factoy |
 |-|رزرو نشده| Builder |
 |-|رزرو نشده| Prototype |
-| <span dir="rtl"> 17 شهریور </span> | amirhosein kia darbandsary | Singleton |
+| <span dir="rtl"> اتمام ترجمه </span> | amirhosein kia darbandsary | Singleton |
 |-|رزرو نشده| Adapter |
 | <span dir="rtl"> اتمام ترجمه </span> | Amirhosein Rahmati | Bridge |
-| <span dir="rtl"> 7 شهریور </span> | mehrdadbn9 | Composite |
-| <span dir="rtl"> 15 شهریور </span> | MohammadMahdi Akhondi | Decorator |
+| <span dir="rtl"> 20 شهریور </span> | mehrdadbn9 | Composite |
+| <span dir="rtl"> 25 شهریور </span> | MohammadMahdi Akhondi | Decorator |
 |-|رزرو نشده| Facade |
 |-|رزرو نشده| Flyweight |
 |-|رزرو نشده| Proxy |
@@ -94,9 +94,9 @@
 |-|رزرو نشده| Memento |
 |-|رزرو نشده| Observer |
 |-|رزرو نشده| State |
-| <span dir="rtl"> 15 شهریور </span> | Khalil Farashiani | Strategy |
-| <span dir="rtl"> 15 شهریور </span> | Khalil Farashiani | Template method |
-| <span dir="rtl"> 15 شهریور </span> | Khalil Farashiani | Visitor & Conclusion|
+| <span dir="rtl"> 25 شهریور </span> | Khalil Farashiani | Strategy |
+| <span dir="rtl"> 25 شهریور </span> | Khalil Farashiani | Template method |
+| <span dir="rtl"> 25 شهریور </span> | Khalil Farashiani | Visitor & Conclusion|
 
 
 
