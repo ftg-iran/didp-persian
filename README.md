@@ -72,7 +72,7 @@
 | :---:        |    :----:   |          :---: |
 | <span dir="rtl"> اتمام ترجمه </span> | Sepehr Rasouli | Introduction to OOP |
 | <span dir="rtl"> 15 شهریور </span> | MohammadAmir Lotfi poor | Introduction to design patterns |
-|-|رزرو نشده| Software design principle |
+| <span dir="rtl"> 25 شهریور </span> | Sepehr Rasouli | Software design principle |
 |-|رزرو نشده| Design principle |
 | <span dir="rtl"> 25 شهریور </span> | MohammadMahdi Akhondi | SOLID principle |
 | <span dir="rtl"> اتمام ترجمه </span> | Komeil Parseh | Factory method |
@@ -80,7 +80,7 @@
 |-|رزرو نشده| Builder |
 |-|رزرو نشده| Prototype |
 | <span dir="rtl"> اتمام ترجمه </span> | amirhosein kia darbandsary | Singleton |
-|-|رزرو نشده| Adapter |
+| <span dir="rtl"> اتمام ترجمه </span> | amirhosein kia darbandsar | Adapter |
 | <span dir="rtl"> اتمام ترجمه </span> | Amirhosein Rahmati | Bridge |
 | <span dir="rtl"> 20 شهریور </span> | mehrdadbn9 | Composite |
 | <span dir="rtl"> 25 شهریور </span> | MohammadMahdi Akhondi | Decorator |
