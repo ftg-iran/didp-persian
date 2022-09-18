@@ -3,7 +3,10 @@
 
 ![cover](cover.png)
 
-قبل از شروع فهرست کتاب، اگر مایل به مشارکت هستید، [نحوه مشارکت](CONTRIBUTING.md) را حتما مطالعه کنید.
+
+### **با توجه به درخواست نویسنده کتاب ترجمه ها به ریپوی خصوصی منتقل شد و به زودی ترجمه و اسامی مترجمین این کتاب بر روی [وبسایت رسمی](https://refactoring.guru/) این کتاب منتشر خواهد شد** 
+اما همچنان می توانید در ترجمه این کتاب مشارکت داشته باشید قبل از شروع، اگر مایل به مشارکت هستید، [نحوه مشارکت](CONTRIBUTING.md) را حتما مطالعه کنید.
+
 
 شما می توانید برای کمک کردن و خشنود کردن و انگیزه دادن به تیم ما، اهدای مالی به خیریه‌ی محک داشته باشید.
 لینک درگاه خیریه محک در سمت راست صفحه درج شده است. لازم به ذکر است که اگر مبلغی را اهدا کرده اید چون ما بی خبر از آن کار هستیم، یک رسید از آن داخل [گروه تلگرامی ما](https://t.me/dfp_farsi) آپلود کنید.
@@ -72,18 +75,18 @@
 | :---:        |    :----:   |          :---: |
 | <span dir="rtl"> اتمام ترجمه </span> | Sepehr Rasouli | Introduction to OOP |
 | <span dir="rtl"> 15 شهریور </span> | MohammadAmir Lotfi poor | Introduction to design patterns |
-| <span dir="rtl"> 25 شهریور </span> | Sepehr Rasouli | Software design principle |
+|-|رزرو نشده| Software design principle |
 |-|رزرو نشده| Design principle |
-| <span dir="rtl"> 25 شهریور </span> | MohammadMahdi Akhondi | SOLID principle |
+| <span dir="rtl"> 15 شهریور </span> | MohammadMahdi Akhondi | SOLID principle |
 | <span dir="rtl"> اتمام ترجمه </span> | Komeil Parseh | Factory method |
 |-|رزرو نشده| Abstract factoy |
 |-|رزرو نشده| Builder |
 |-|رزرو نشده| Prototype |
-| <span dir="rtl"> اتمام ترجمه </span> | amirhosein kia darbandsary | Singleton |
-| <span dir="rtl"> اتمام ترجمه </span> | amirhosein kia darbandsar | Adapter |
+| <span dir="rtl"> 17 شهریور </span> | amirhosein kia darbandsary | Singleton |
+|-|رزرو نشده| Adapter |
 | <span dir="rtl"> اتمام ترجمه </span> | Amirhosein Rahmati | Bridge |
-| <span dir="rtl"> 20 شهریور </span> | mehrdadbn9 | Composite |
-| <span dir="rtl"> 25 شهریور </span> | MohammadMahdi Akhondi | Decorator |
+| <span dir="rtl"> 7 شهریور </span> | mehrdadbn9 | Composite |
+| <span dir="rtl"> 15 شهریور </span> | MohammadMahdi Akhondi | Decorator |
 |-|رزرو نشده| Facade |
 |-|رزرو نشده| Flyweight |
 |-|رزرو نشده| Proxy |
@@ -94,9 +97,9 @@
 |-|رزرو نشده| Memento |
 |-|رزرو نشده| Observer |
 |-|رزرو نشده| State |
-| <span dir="rtl"> 25 شهریور </span> | Khalil Farashiani | Strategy |
-| <span dir="rtl"> 25 شهریور </span> | Khalil Farashiani | Template method |
-| <span dir="rtl"> 25 شهریور </span> | Khalil Farashiani | Visitor & Conclusion|
+| <span dir="rtl"> 15 شهریور </span> | Khalil Farashiani | Strategy |
+| <span dir="rtl"> 15 شهریور </span> | Khalil Farashiani | Template method |
+| <span dir="rtl"> 15 شهریور </span> | Khalil Farashiani | Visitor & Conclusion|
 
 
 
