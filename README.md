@@ -81,9 +81,9 @@
 | <span dir="rtl"> اتمام ترجمه </span> | Komeil Parseh | Factory method |
 |-|رزرو نشده| Abstract factoy |
 |-|رزرو نشده| Builder |
-|-|رزرو نشده| Prototype |
-| <span dir="rtl"> 17 شهریور </span> | amirhosein kia darbandsary | Singleton |
-|-|رزرو نشده| Adapter |
+| اتمام ترجمه | amirhosein kia darbandsary | Prototype |
+| اتمام ترجمه | amirhosein kia darbandsary | Singleton |
+| اتمام ترجمه | amirhosein kia darbandsary | Adapter |
 | <span dir="rtl"> اتمام ترجمه </span> | Amirhosein Rahmati | Bridge |
 | <span dir="rtl"> 7 شهریور </span> | mehrdadbn9 | Composite |
 | <span dir="rtl"> 15 شهریور </span> | MohammadMahdi Akhondi | Decorator |
@@ -97,7 +97,7 @@
 |-|رزرو نشده| Memento |
 |-|رزرو نشده| Observer |
 |-|رزرو نشده| State |
-| <span dir="rtl"> 15 شهریور </span> | Khalil Farashiani | Strategy |
+| اتمام ترجمه | Khalil Farashiani | Strategy |
 | <span dir="rtl"> 15 شهریور </span> | Khalil Farashiani | Template method |
 | <span dir="rtl"> 15 شهریور </span> | Khalil Farashiani | Visitor & Conclusion|
 
